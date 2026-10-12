@@ -1,0 +1,25 @@
+.star-rating-component {
+    display: flex;
+    align-items: center;
+  }
+  
+  .stars-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .star-container {
+    position: relative;
+  }
+  
+  .star {
+    transition: color 0.3s ease;
+  }
+  
+  .star-empty {
+    color: #d1d5db;
+  }
+  
+  .star-filled {
+    color: #f59e0b;
+  } 

@@ -1,0 +1,79 @@
+# === Backend (back/) ===
+
+back/dist/
+back/node_modules/
+back/build/
+node_modules/
+front/node_modules/
+package-lock.json
+back/package-lock.json
+front/package-lock.json
+/node_modules/package-lock.json
+node_modules/.package-lock.json
+# Logs (shared + back)
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+
+# Tests (back)
+back/coverage/
+back/.nyc_output
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Env files (back)
+back/.env
+back/.env.development.local
+back/.env.test.local
+back/.env.production.local
+back/.env.local
+back/src/.env
+
+# Temp and runtime (back)
+back/.temp/
+back/.tmp/
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Node.js diagnostic reports (back)
+back/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# === Frontend (front/) ===
+
+front/node_modules/
+front/dist/
+front/dist-ssr/
+front/*.local
+
+# Editor directories and files (front)
+front/.vscode/*
+!front/.vscode/extensions.json
+front/.idea/
+front/*.suo
+front/*.ntvs*
+front/*.njsproj
+front/*.sln
+front/*.sw?

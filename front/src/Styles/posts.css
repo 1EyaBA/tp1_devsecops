@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  body {
+    @apply relative text-base font-normal z-1 bg-gray-50 font-outfit;
+  }
+}
+
+@layer components {
+  .menu-item {
+    @apply px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors;
+  }
+  
+  .menu-item-active {
+    @apply px-4 py-2 text-blue-700 bg-blue-50 rounded-md font-medium;
+  }
+  
+  .custom-scrollbar {
+    @apply scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400;
+  }
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 20px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af;
+}
+/* Main container adjustments */
+.main-container {
+    @apply max-w-full px-4 md:px-8 lg:px-12 !important;
+  }
+  
+  /* Carpool cards adjustments */
+  .carpool-card {
+    @apply w-full max-w-4xl mx-auto md:max-w-none !important;
+  }
+  
+  /* For the listings container */
+  .carpools-container {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 !important;
+  }
+
+  .md\:p-6 {
+    padding: 0.25rem !important;
+    padding-top: 0rem !important;
+    margin-top: 0rem !important;
+}
+.md\:px-8 {
+  padding-top: 0rem !important;
+  margin-top: 0rem !important;
+}

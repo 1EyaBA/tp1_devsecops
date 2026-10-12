@@ -1,0 +1,475 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: Float!
+  email: String!
+  password: String!
+  role: String!
+}
+
+type Comment {
+  id: Float!
+  text: String!
+  date: DateTime!
+  post: Post!
+  commenter: AppUser!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Post {
+  id: ID!
+  destination: String!
+  departure: String!
+  date: String!
+  time: String!
+  seatCount: Int!
+  frequency: String!
+  description: String
+  price: Float
+  contactInfo: String
+  comments: [Comment!]
+  postOwner: AppUser!
+  listRide: [Ride!]
+  status: String
+  chatId: Int
+}
+
+type Review {
+  id: Float!
+  stars: Float!
+  comment: String
+  date: String!
+  reviewer: AppUser!
+  reviewedUser: AppUser!
+  ride: Ride!
+}
+
+type AppUser {
+  id: Float!
+  email: String!
+  password: String!
+  role: String!
+  name: String!
+  lastName: String!
+  dateOfBirth: String
+  phoneNumber: String
+  imageUrl: String
+  posts: [Post!]!
+  reviews: [Review!]!
+  rating: Float
+  appUserRides: [AppUserRide!]!
+}
+
+type AppUserRide {
+  id: Float!
+  appUser: AppUser!
+  ride: Ride!
+}
+
+type JoinRequest {
+  id: Float!
+  date: DateTime!
+  user: AppUser
+  ride: Ride
+}
+
+type Ride {
+  id: Float!
+  date: String!
+  time: String!
+  departure: String!
+  arrival: String!
+  price: Float!
+  nbPassengers: Float!
+  state: String!
+  appUserRides: [AppUserRide!]!
+  post: Post!
+  driver: AppUser
+  joinRequests: [JoinRequest!]
+}
+
+type AppUserWithRole {
+  id: Float!
+  email: String!
+  password: String!
+  role: String!
+  name: String!
+  lastName: String!
+  dateOfBirth: String
+  phoneNumber: String
+  imageUrl: String
+  posts: [Post!]!
+  reviews: [Review!]!
+  rating: Float
+  appUserRides: [AppUserRide!]!
+  roleInRide: Role!
+}
+
+enum Role {
+  DRIVER
+  PASSENGER
+}
+
+type Notification {
+  id: Int!
+  userId: Int!
+  type: String!
+  title: String!
+  message: String!
+  status: NotificationStatus!
+  read: Boolean!
+  timestamp: DateTime!
+  actionUrl: String
+  metadata: JSON
+  relatedEntityId: Int
+  relatedEntityType: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum NotificationStatus {
+  UNREAD
+  READ
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+type RidePaginationResult {
+  data: [Ride!]!
+  totalItems: Int!
+  totalPages: Int!
+  currentPage: Int!
+}
+
+type MatchingRideResult {
+  ride: Ride
+  postOwnerId: String
+}
+
+type PostPaginatedResponse {
+  data: [Post!]!
+  totalItems: Float!
+  currentPage: Float!
+}
+
+type AppUserSearchResult {
+  data: [AppUser!]!
+  totalItems: Float!
+  currentPage: Float!
+}
+
+type MarkAllAsReadResponse {
+  count: Int!
+}
+
+type Chat {
+  id: Float!
+  messages: [Message!]!
+  driver: AppUser!
+  rider: AppUser!
+  ride: Ride!
+}
+
+type Message {
+  id: Int!
+  text: String!
+  chat: Chat!
+  createdAt: DateTime!
+  sender: AppUser!
+}
+
+type DashboardStatsType {
+  userCount: Int!
+  rideCount: Int!
+  postCount: Int!
+  reviewCount: Int!
+  reportCount: Int!
+  commentCount: Int!
+}
+
+type RidesPerMonth {
+  month: String!
+  count: Int!
+}
+
+type DashboardData {
+  stats: DashboardStatsType!
+  ridesPerMonth: [RidesPerMonth!]!
+  recentRides: [Ride!]!
+  recentUsers: [AppUser!]!
+}
+
+type Report {
+  id: Int!
+  subjectType: String!
+  reporter: AppUser!
+  reportedUser: AppUser!
+  reportedRide: Ride
+  reason: String!
+  proofPath: String
+  proofUrl: String
+  status: ReportStatus!
+  createdAt: DateTime!
+}
+
+enum ReportStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+type UserInfo {
+  id: Float!
+  name: String!
+  lastName: String!
+  rating: Float!
+  phoneNumber: String!
+  imageUrl: String!
+}
+
+type RideDetails {
+  id: Float!
+  departure: String!
+  date: String!
+  arrival: String!
+  price: Float!
+  time: String!
+}
+
+type ReviewFormData {
+  reviewedUser: UserInfo!
+  ride: RideDetails!
+}
+
+type PaginatedReviewsResponse {
+  data: [Review!]!
+  totalItems: Int!
+  totalPages: Int!
+  currentPage: Int!
+}
+
+type ReviewPaginationResult {
+  data: [Review!]!
+  totalItems: Int!
+  totalPages: Int!
+  currentPage: Int!
+}
+
+type ReportPagination {
+  """Liste des rapports de la page courante"""
+  data: [Report!]!
+
+  """Nombre total d’éléments disponibles"""
+  totalItems: Int!
+
+  """Nombre total de pages"""
+  totalPages: Int!
+
+  """Page courante"""
+  currentPage: Int!
+}
+
+type JwtAuthResponse {
+  accessToken: String!
+  refreshToken: String
+  user: User!
+}
+
+type Query {
+  dummyQuery: String
+  getAppUserInfo: AppUser!
+  getUsers(searchTerm: String!, page: Int! = 1, limit: Int! = 10): AppUserSearchResult!
+  getUserById(id: Int!): AppUser
+  getAppUserById(id: Int!): AppUser!
+  getAllRides: [Ride!]!
+  getRideById(id: String!): Ride!
+  getCommonRides(userId1: Int!, userId2: Int!): [Ride!]!
+  getRidesByState(state: String!): [Ride!]!
+  getRidesByDateRange(startDate: DateTime!, endDate: DateTime!): [Ride!]!
+  getRidesByDriver: [Ride!]!
+  getRidesPaginatedByDriver(page: Int! = 1, limit: Int! = 10, id: Int): RidePaginationResult!
+  getRidesPaginatedByPassenger(page: Int! = 1, limit: Int! = 10, id: Int): RidePaginationResult!
+  getRidesByUserId: [Ride!]!
+  getRidesByPassenger: [Ride!]!
+  getUsersForRide(rideId: Int!): [AppUserWithRole!]!
+  searchRidesByUser(searchTerm: String!, page: Int! = 1, limit: Int! = 10, filterType: String): RidePaginationResult!
+  getPosts(searchTerm: String, page: Int, limit: Int, filter: String): PostPaginatedResponse!
+  getPostById(id: String!): Post!
+  matchingRide(postId: Int!): MatchingRideResult
+  isUserInRide(userId: Int!, rideId: Int!): Boolean!
+  allNotifications: [Notification!]!
+  notifications(userId: Int!, limit: Int, offset: Int): [Notification!]!
+  unreadNotifications(userId: Int!): [Notification!]!
+  unreadNotificationsCount(userId: Int!): Int!
+  notification(id: Int!): Notification!
+  getAllComments: [Comment!]!
+  getCommentsByPost(postId: Int!): [Comment!]!
+  getChatMessages(chatId: Int!): [Message!]!
+  messages: [Message!]!
+  message(id: Int!): Message!
+  getChats(userId: Int!): [Chat!]!
+  getChat(chatId: Int!): Chat!
+  getChatByRideId(rideId: Int!): Chat!
+  reviewFormData(rideId: Int!, reviewedUserId: Int!): ReviewFormData!
+  getMyReviews(page: Int = 1, limit: Int = 6): PaginatedReviewsResponse!
+  getUserReviews(userId: Int!, page: Int = 1, limit: Int = 6): PaginatedReviewsResponse!
+  getAverageRating: Int!
+  getAverageRatingById(id: Int!): Int!
+  getPaginatedMyReviews(page: Int = 1, limit: Int = 10, sortField: String = "createdAt", sortOrder: String = "DESC"): ReviewPaginationResult!
+  searchMyReviews(searchTerm: String!, page: Int = 1, limit: Int = 6, isMyReviews: Boolean = true): PaginatedReviewsResponse!
+  getDashboardData: DashboardData!
+  getMyReports(page: Int! = 1, limit: Int! = 6, search: String, status: String): ReportPagination!
+  getJoinRequestById(id: Float!): JoinRequest!
+  getAllJoinRequests: [JoinRequest!]!
+  getJoinRequestsByRide(rideId: Int!): [JoinRequest!]!
+  getJoinRequestsByRideUser(rideId: Int!, userId: Int!): [JoinRequest!]!
+}
+
+type Mutation {
+  register(input: RegisterInput!): AppUser!
+  login(input: LoginInput!): JwtAuthResponse!
+  updateAppUser(updateAppUserInput: UpdateAppUserInput!): AppUser!
+  updatePhoto(updatePhotoInput: UploadPhotoInput!): AppUser!
+  createRide(createRideInput: CreateRideInput!, postId: Float!): Ride!
+  updateRide(id: String!, updateRideInput: UpdateRideInput!): Ride!
+  removeRide(id: String!): Boolean!
+  closeRide(rideId: Int!): Ride!
+  createPost(createPostInput: CreatePostInput!): Post!
+  deletePost(id: Int!): Boolean!
+  closepost(id: Int!): Boolean!
+  createNotification(createNotificationInput: CreateNotificationInput!): Notification!
+  updateNotification(updateNotificationInput: UpdateNotificationInput!): Notification!
+  markNotificationRead(notificationId: Int!): Notification!
+  markAllNotificationsRead(userId: Int!): MarkAllAsReadResponse!
+  deleteNotification(notificationId: Int!): Notification!
+  createComment(input: CreateCommentInput!): Comment!
+  createMessage(createMessageInput: CreateMessageInput!): Message!
+  updateMessage(updateMessageInput: UpdateMessageInput!): Message!
+  removeMessage(id: Int!): Boolean!
+  CreateChat(createChatInput: CreateChatInput!): Chat
+  RemoveChat(chatId: Int!): Boolean!
+  createJoinRequest(postId: Int!): JoinRequest!
+  deleteJoinRequest(postId: Int!): Boolean!
+  deleteJoinRequestById(id: Int!): Boolean!
+  acceptJoinRequest(requestId: Int!, rideId: Int!, userId: Int!): AppUserRide!
+}
+
+input RegisterInput {
+  name: String!
+  lastName: String!
+  email: String!
+  password: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input UpdateAppUserInput {
+  name: String
+  lastName: String
+  dateOfBirth: String
+  phoneNumber: String
+  email: String
+  password: String
+}
+
+input UploadPhotoInput {
+  file: String!
+}
+
+input CreateRideInput {
+  date: DateTime!
+  time: String!
+  departure: String!
+  arrival: String!
+  price: Float!
+  nbPassengers: Int!
+  state: String = "NotStarted"
+}
+
+input UpdateRideInput {
+  date: DateTime
+  time: String
+  departure: String
+  arrival: String
+  price: Float
+  nbPassengers: Int
+  state: String
+}
+
+input CreatePostInput {
+  destination: String!
+  departure: String!
+  date: DateTime!
+  time: String!
+  seatCount: Int!
+  frequency: String!
+  description: String
+  price: Float
+  contactInfo: String
+  listRide: [String!]!
+  postOwnerId: Float!
+}
+
+input CreateNotificationInput {
+  userId: Int!
+  type: String!
+  title: String!
+  message: String!
+  actionUrl: String
+  metadata: JSONObject
+  relatedEntityId: Int
+  relatedEntityType: String
+}
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+input UpdateNotificationInput {
+  userId: Int
+  type: String
+  title: String
+  message: String
+  actionUrl: String
+  metadata: JSONObject
+  relatedEntityId: Int
+  relatedEntityType: String
+  id: Int!
+  status: NotificationStatus
+}
+
+input CreateCommentInput {
+  text: String!
+  postId: Int!
+}
+
+input CreateMessageInput {
+  text: String!
+  chatId: Int!
+  senderId: Int!
+}
+
+input UpdateMessageInput {
+  text: String
+  chatId: Int
+  senderId: Int
+  id: Int!
+}
+
+input CreateChatInput {
+  riderId: Int!
+  rideId: Int!
+}
