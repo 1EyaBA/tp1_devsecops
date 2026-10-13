@@ -1,0 +1,1528 @@
+[
+  {
+    "vulnerabilities": [
+      {
+        "id": "SNYK-JS-APOLLOSERVER-15790568",
+        "title": "Information Exposure",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:N/A:N",
+        "credit": [
+          "AmirMohammad Safari"
+        ],
+        "semver": {
+          "vulnerable": [
+            "<5.5.0"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "5.5.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "js",
+        "severity": "medium",
+        "cvssScore": 6.3,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "@apollo/server",
+        "references": [
+          {
+            "url": "https://github.com/apollographql/apollo-server/security/advisories/GHSA-9q82-xgwf-vj6h",
+            "title": "GitHub Advisory"
+          },
+          {
+            "url": "https://github.com/apollographql/apollo-server/commit/ada12001c4e95b5c779d80314a5a32e33087b5cf",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/apollographql/apollo-server/releases/tag/@apollo/server@5.5.0",
+            "title": "GitHub Release"
+          }
+        ],
+        "cvssDetails": [],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:L/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6.3,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-05-21T02:01:38.563322Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 4,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-05-21T02:01:38.563322Z"
+          }
+        ],
+        "description": "## Overview\n[@apollo/server](https://www.npmjs.com/package/@apollo/server) is a spec-compliant GraphQL server that's compatible with any GraphQL client, including Apollo Client. Successor to apollo-server-core, et al.\n\nAffected versions of this package are vulnerable to Information Exposure in the request handling process. An attacker can infer sensitive information about server responses by issuing specially crafted authenticated GraphQL queries across origins using a browser with a specific CORS implementation bug, allowing them to analyze response times and deduce facts such as whether fields return null or the approximate number of list entries returned from fields.\n\n**Note:**\n\nThis is only exploitable if the server relies on cookies or HTTP Basic Auth for authentication and the attack is performed from a browser affected by the CORS bug.\n\n## Workaround\n\nThis vulnerability can be mitigated by blocking any HTTP request with a `Content-Type` header containing `message/` from reaching the server, for example by adding middleware or a proxy rule to reject such requests.\n## Remediation\nUpgrade `@apollo/server` to version 5.5.0 or higher.\n## References\n- [GitHub Advisory](https://github.com/apollographql/apollo-server/security/advisories/GHSA-9q82-xgwf-vj6h)\n- [GitHub Commit](https://github.com/apollographql/apollo-server/commit/ada12001c4e95b5c779d80314a5a32e33087b5cf)\n- [GitHub Release](https://github.com/apollographql/apollo-server/releases/tag/@apollo/server@5.5.0)\n",
+        "epssDetails": null,
+        "identifiers": {
+          "CVE": [],
+          "CWE": [
+            "CWE-200"
+          ],
+          "GHSA": [
+            "GHSA-9q82-xgwf-vj6h"
+          ]
+        },
+        "packageName": "@apollo/server",
+        "proprietary": false,
+        "creationTime": "2026-03-27T10:47:09.975943Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-03-26T21:53:10Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "npm",
+        "publicationTime": "2026-03-27T10:47:10.188457Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-05-21T02:01:38.563322Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "medium",
+        "from": [
+          "back@0.0.1",
+          "@apollo/server@4.13.0"
+        ],
+        "upgradePath": [
+          false,
+          "@apollo/server@5.5.0"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "@apollo/server",
+        "version": "4.13.0"
+      },
+      {
+        "id": "SNYK-JS-DICER-2311764",
+        "title": "Denial of Service (DoS)",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:F/RL:O/RC:C",
+        "credit": [
+          "Aras Abbasi"
+        ],
+        "semver": {
+          "vulnerable": [
+            "*"
+          ]
+        },
+        "exploit": "Functional",
+        "fixedIn": [],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "js",
+        "severity": "high",
+        "cvssScore": 7.5,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "dicer",
+        "references": [
+          {
+            "url": "https://github.com/mscdex/dicer/pull/22/commits/b7fca2e93e8e9d4439d8acc5c02f5e54a0112dac",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/mscdex/busboy/issues/250",
+            "title": "GitHub Issue"
+          },
+          {
+            "url": "https://github.com/mscdex/dicer/pull/22",
+            "title": "GitHub PR"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "NVD",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2024-03-11T09:49:15.518976Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H/E:F/RL:O/RC:C",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-09T16:59:11.375786Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "NVD",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2024-03-11T09:49:15.518976Z"
+          }
+        ],
+        "description": "## Overview\n\nAffected versions of this package are vulnerable to Denial of Service (DoS). A malicious attacker can send a modified form to server, and crash the nodejs service. An attacker could sent the payload again and again so that the service continuously crashes.\n## PoC\nawait fetch('http://127.0.0.1:8000', {\r\n      method: 'POST',\r\n      headers: {\r\n        ['content-type']: 'multipart/form-data; boundary=----WebKitFormBoundaryoo6vortfDzBsDiro',\r\n        ['content-length']: '145',\r\n        connection: 'keep-alive',\r\n      },\r\n      body: '------WebKitFormBoundaryoo6vortfDzBsDiro\\r\\n Content-Disposition: form-data; name=\"bildbeschreibung\"\\r\\n\\r\\n\\r\\n------WebKitFormBoundaryoo6vortfDzBsDiro--'\r\n    });\n## Remediation\nThere is no fixed version for `dicer`.\n## References\n- [GitHub Commit](https://github.com/mscdex/dicer/pull/22/commits/b7fca2e93e8e9d4439d8acc5c02f5e54a0112dac)\n- [GitHub Issue](https://github.com/mscdex/busboy/issues/250)\n- [GitHub PR](https://github.com/mscdex/dicer/pull/22)\n",
+        "epssDetails": {
+          "percentile": "0.88788",
+          "probability": "0.03478",
+          "modelVersion": "v2026.06.15"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2022-24434"
+          ],
+          "CWE": [
+            "CWE-400"
+          ]
+        },
+        "packageName": "dicer",
+        "proprietary": true,
+        "creationTime": "2021-12-07T14:51:46.208362Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2021-12-07T14:51:02Z",
+        "exploitDetails": {
+          "sources": [
+            "Snyk"
+          ],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Functional",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Proof of Concept",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "npm",
+        "publicationTime": "2022-05-19T10:52:23Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-10-09T16:59:11.375786Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "back@0.0.1",
+          "graphql-upload@13.0.0",
+          "busboy@0.3.1",
+          "dicer@0.3.0"
+        ],
+        "upgradePath": [
+          false,
+          "graphql-upload@15.0.0",
+          "busboy@1.6.0"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "dicer",
+        "version": "0.3.0"
+      },
+      {
+        "id": "SNYK-JS-GRAPHQLTOOLSUTILS-20537055",
+        "title": "Prototype Pollution",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "credit": [
+          "tepel-chen"
+        ],
+        "semver": {
+          "vulnerable": [
+            "<12.0.1"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "12.0.1"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "js",
+        "severity": "high",
+        "cvssScore": 8.2,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "@graphql-tools/utils",
+        "references": [
+          {
+            "url": "https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/pull/8423",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/graphql-hive/gateway/pull/2600",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv",
+            "title": "Maintainer's Advisory"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.2,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Red Hat",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "description": "## Overview\n[@graphql-tools/utils](https://www.npmjs.org/package/@graphql-tools/utils) is a Common package containing utils and types for GraphQL tools\n\nAffected versions of this package are vulnerable to Prototype Pollution via the `mergeDeep` function, which fails to block reserved property keys such as `__proto__`, `constructor`, and `prototype` before recursively merging source objects into an output object. An attacker who controls a source object passed to `mergeDeep` can pollute `Object.prototype`, potentially affecting all objects in the process and enabling further exploitation.\n\n## Details\n\nPrototype Pollution is a vulnerability affecting JavaScript. Prototype Pollution refers to the ability to inject properties into existing JavaScript language construct prototypes, such as objects. JavaScript allows all Object attributes to be altered, including their magical attributes such as `__proto__`, `constructor` and `prototype`. An attacker manipulates these attributes to overwrite, or pollute, a JavaScript application object prototype of the base object by injecting other values.  Properties on the `Object.prototype` are then inherited by all the JavaScript objects through the prototype chain. When that happens, this leads to either denial of service by triggering JavaScript exceptions, or it tampers with the application source code to force the code path that the attacker injects, thereby leading to remote code execution.\n\nThere are two main ways in which the pollution of prototypes occurs:\n\n-   Unsafe `Object` recursive merge\n    \n-   Property definition by path\n    \n\n### Unsafe Object recursive merge\n\nThe logic of a vulnerable recursive merge function follows the following high-level model:\n```\nmerge (target, source)\n\n  foreach property of source\n\n    if property exists and is an object on both the target and the source\n\n      merge(target[property], source[property])\n\n    else\n\n      target[property] = source[property]\n```\n<br>  \n\nWhen the source object contains a property named `__proto__` defined with `Object.defineProperty()` , the condition that checks if the property exists and is an object on both the target and the source passes and the merge recurses with the target, being the prototype of `Object` and the source of `Object` as defined by the attacker. Properties are then copied on the `Object` prototype.\n\nClone operations are a special sub-class of unsafe recursive merges, which occur when a recursive merge is conducted on an empty object: `merge({},source)`.\n\n`lodash` and `Hoek` are examples of libraries susceptible to recursive merge attacks.\n\n### Property definition by path\n\nThere are a few JavaScript libraries that use an API to define property values on an object based on a given path. The function that is generally affected contains this signature: `theFunction(object, path, value)`\n\nIf the attacker can control the value of “path”, they can set this value to `__proto__.myValue`. `myValue` is then assigned to the prototype of the class of the object.\n\n## Types of attacks\n\nThere are a few methods by which Prototype Pollution can be manipulated:\n\n| Type |Origin  |Short description |\n|--|--|--|\n| **Denial of service (DoS)**|Client  |This is the most likely attack. <br>DoS occurs when `Object` holds generic functions that are implicitly called for various operations (for example, `toString` and `valueOf`). <br> The attacker pollutes `Object.prototype.someattr` and alters its state to an unexpected value such as `Int` or `Object`. In this case, the code fails and is likely to cause a denial of service.  <br>**For example:** if an attacker pollutes `Object.prototype.toString` by defining it as an integer, if the codebase at any point was reliant on `someobject.toString()` it would fail. |\n |**Remote Code Execution**|Client|Remote code execution is generally only possible in cases where the codebase evaluates a specific attribute of an object, and then executes that evaluation.<br>**For example:** `eval(someobject.someattr)`. In this case, if the attacker pollutes `Object.prototype.someattr` they are likely to be able to leverage this in order to execute code.|\n|**Property Injection**|Client|The attacker pollutes properties that the codebase relies on for their informative value, including security properties such as cookies or tokens.<br>  **For example:** if a codebase checks privileges for `someuser.isAdmin`, then when the attacker pollutes `Object.prototype.isAdmin` and sets it to equal `true`, they can then achieve admin privileges.|\n\n## Affected environments\n\nThe following environments are susceptible to a Prototype Pollution attack:\n\n-   Application server\n    \n-   Web server\n\n-   Web browser\n    \n\n## How to prevent\n\n1.  Freeze the prototype— use `Object.freeze (Object.prototype)`.\n    \n2.  Require schema validation of JSON input.\n    \n3.  Avoid using unsafe recursive merge functions.\n    \n4.  Consider using objects without prototypes (for example, `Object.create(null)`), breaking the prototype chain and preventing pollution.\n    \n5.  As a best practice use `Map` instead of `Object`.\n\n### For more information on this vulnerability type:\n\n[Arteau, Olivier. “JavaScript prototype pollution attack in NodeJS application.” GitHub, 26 May 2018](https://github.com/HoLyVieR/prototype-pollution-nsec18/blob/master/paper/JavaScript_prototype_pollution_attack_in_NodeJS.pdf)\n\n## Remediation\nUpgrade `@graphql-tools/utils` to version 12.0.1 or higher.\n## References\n- [GitHub Commit](https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e)\n- [GitHub PR](https://github.com/ardatan/graphql-tools/pull/8423)\n- [GitHub PR](https://github.com/graphql-hive/gateway/pull/2600)\n- [Maintainer's Advisory](https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv)\n",
+        "epssDetails": {
+          "percentile": "0.27143",
+          "probability": "0.00356",
+          "modelVersion": "v2026.06.15"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-104852"
+          ],
+          "CWE": [
+            "CWE-1321"
+          ],
+          "GHSA": [
+            "GHSA-7mx3-vvmw-hjmv"
+          ]
+        },
+        "packageName": "@graphql-tools/utils",
+        "proprietary": false,
+        "creationTime": "2026-10-06T13:40:54.993466Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-10-06T00:13:54.277000Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "npm",
+        "publicationTime": "2026-10-06T13:40:55.188306Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-10-07T13:32:37.361867Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "back@0.0.1",
+          "@apollo/server@4.13.0",
+          "@graphql-tools/schema@9.0.19",
+          "@graphql-tools/utils@9.2.1"
+        ],
+        "upgradePath": [
+          false,
+          "@apollo/server@5.4.0",
+          "@graphql-tools/schema@10.1.4",
+          "@graphql-tools/utils@12.0.4"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "@graphql-tools/utils",
+        "version": "9.2.1"
+      },
+      {
+        "id": "SNYK-JS-GRAPHQLTOOLSUTILS-20537055",
+        "title": "Prototype Pollution",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "credit": [
+          "tepel-chen"
+        ],
+        "semver": {
+          "vulnerable": [
+            "<12.0.1"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "12.0.1"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "js",
+        "severity": "high",
+        "cvssScore": 8.2,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "@graphql-tools/utils",
+        "references": [
+          {
+            "url": "https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/pull/8423",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/graphql-hive/gateway/pull/2600",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv",
+            "title": "Maintainer's Advisory"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.2,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Red Hat",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "description": "## Overview\n[@graphql-tools/utils](https://www.npmjs.org/package/@graphql-tools/utils) is a Common package containing utils and types for GraphQL tools\n\nAffected versions of this package are vulnerable to Prototype Pollution via the `mergeDeep` function, which fails to block reserved property keys such as `__proto__`, `constructor`, and `prototype` before recursively merging source objects into an output object. An attacker who controls a source object passed to `mergeDeep` can pollute `Object.prototype`, potentially affecting all objects in the process and enabling further exploitation.\n\n## Details\n\nPrototype Pollution is a vulnerability affecting JavaScript. Prototype Pollution refers to the ability to inject properties into existing JavaScript language construct prototypes, such as objects. JavaScript allows all Object attributes to be altered, including their magical attributes such as `__proto__`, `constructor` and `prototype`. An attacker manipulates these attributes to overwrite, or pollute, a JavaScript application object prototype of the base object by injecting other values.  Properties on the `Object.prototype` are then inherited by all the JavaScript objects through the prototype chain. When that happens, this leads to either denial of service by triggering JavaScript exceptions, or it tampers with the application source code to force the code path that the attacker injects, thereby leading to remote code execution.\n\nThere are two main ways in which the pollution of prototypes occurs:\n\n-   Unsafe `Object` recursive merge\n    \n-   Property definition by path\n    \n\n### Unsafe Object recursive merge\n\nThe logic of a vulnerable recursive merge function follows the following high-level model:\n```\nmerge (target, source)\n\n  foreach property of source\n\n    if property exists and is an object on both the target and the source\n\n      merge(target[property], source[property])\n\n    else\n\n      target[property] = source[property]\n```\n<br>  \n\nWhen the source object contains a property named `__proto__` defined with `Object.defineProperty()` , the condition that checks if the property exists and is an object on both the target and the source passes and the merge recurses with the target, being the prototype of `Object` and the source of `Object` as defined by the attacker. Properties are then copied on the `Object` prototype.\n\nClone operations are a special sub-class of unsafe recursive merges, which occur when a recursive merge is conducted on an empty object: `merge({},source)`.\n\n`lodash` and `Hoek` are examples of libraries susceptible to recursive merge attacks.\n\n### Property definition by path\n\nThere are a few JavaScript libraries that use an API to define property values on an object based on a given path. The function that is generally affected contains this signature: `theFunction(object, path, value)`\n\nIf the attacker can control the value of “path”, they can set this value to `__proto__.myValue`. `myValue` is then assigned to the prototype of the class of the object.\n\n## Types of attacks\n\nThere are a few methods by which Prototype Pollution can be manipulated:\n\n| Type |Origin  |Short description |\n|--|--|--|\n| **Denial of service (DoS)**|Client  |This is the most likely attack. <br>DoS occurs when `Object` holds generic functions that are implicitly called for various operations (for example, `toString` and `valueOf`). <br> The attacker pollutes `Object.prototype.someattr` and alters its state to an unexpected value such as `Int` or `Object`. In this case, the code fails and is likely to cause a denial of service.  <br>**For example:** if an attacker pollutes `Object.prototype.toString` by defining it as an integer, if the codebase at any point was reliant on `someobject.toString()` it would fail. |\n |**Remote Code Execution**|Client|Remote code execution is generally only possible in cases where the codebase evaluates a specific attribute of an object, and then executes that evaluation.<br>**For example:** `eval(someobject.someattr)`. In this case, if the attacker pollutes `Object.prototype.someattr` they are likely to be able to leverage this in order to execute code.|\n|**Property Injection**|Client|The attacker pollutes properties that the codebase relies on for their informative value, including security properties such as cookies or tokens.<br>  **For example:** if a codebase checks privileges for `someuser.isAdmin`, then when the attacker pollutes `Object.prototype.isAdmin` and sets it to equal `true`, they can then achieve admin privileges.|\n\n## Affected environments\n\nThe following environments are susceptible to a Prototype Pollution attack:\n\n-   Application server\n    \n-   Web server\n\n-   Web browser\n    \n\n## How to prevent\n\n1.  Freeze the prototype— use `Object.freeze (Object.prototype)`.\n    \n2.  Require schema validation of JSON input.\n    \n3.  Avoid using unsafe recursive merge functions.\n    \n4.  Consider using objects without prototypes (for example, `Object.create(null)`), breaking the prototype chain and preventing pollution.\n    \n5.  As a best practice use `Map` instead of `Object`.\n\n### For more information on this vulnerability type:\n\n[Arteau, Olivier. “JavaScript prototype pollution attack in NodeJS application.” GitHub, 26 May 2018](https://github.com/HoLyVieR/prototype-pollution-nsec18/blob/master/paper/JavaScript_prototype_pollution_attack_in_NodeJS.pdf)\n\n## Remediation\nUpgrade `@graphql-tools/utils` to version 12.0.1 or higher.\n## References\n- [GitHub Commit](https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e)\n- [GitHub PR](https://github.com/ardatan/graphql-tools/pull/8423)\n- [GitHub PR](https://github.com/graphql-hive/gateway/pull/2600)\n- [Maintainer's Advisory](https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv)\n",
+        "epssDetails": {
+          "percentile": "0.27143",
+          "probability": "0.00356",
+          "modelVersion": "v2026.06.15"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-104852"
+          ],
+          "CWE": [
+            "CWE-1321"
+          ],
+          "GHSA": [
+            "GHSA-7mx3-vvmw-hjmv"
+          ]
+        },
+        "packageName": "@graphql-tools/utils",
+        "proprietary": false,
+        "creationTime": "2026-10-06T13:40:54.993466Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-10-06T00:13:54.277000Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "npm",
+        "publicationTime": "2026-10-06T13:40:55.188306Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-10-07T13:32:37.361867Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "back@0.0.1",
+          "@apollo/server@4.13.0",
+          "@graphql-tools/schema@9.0.19",
+          "@graphql-tools/merge@8.4.2",
+          "@graphql-tools/utils@9.2.1"
+        ],
+        "upgradePath": [
+          false,
+          "@apollo/server@5.4.0",
+          "@graphql-tools/schema@10.1.4",
+          "@graphql-tools/merge@9.2.7",
+          "@graphql-tools/utils@12.0.4"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "@graphql-tools/utils",
+        "version": "9.2.1"
+      },
+      {
+        "id": "SNYK-JS-GRAPHQLTOOLSUTILS-20537055",
+        "title": "Prototype Pollution",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "credit": [
+          "tepel-chen"
+        ],
+        "semver": {
+          "vulnerable": [
+            "<12.0.1"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "12.0.1"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "js",
+        "severity": "high",
+        "cvssScore": 8.2,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "@graphql-tools/utils",
+        "references": [
+          {
+            "url": "https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/pull/8423",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/graphql-hive/gateway/pull/2600",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv",
+            "title": "Maintainer's Advisory"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.2,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Red Hat",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "description": "## Overview\n[@graphql-tools/utils](https://www.npmjs.org/package/@graphql-tools/utils) is a Common package containing utils and types for GraphQL tools\n\nAffected versions of this package are vulnerable to Prototype Pollution via the `mergeDeep` function, which fails to block reserved property keys such as `__proto__`, `constructor`, and `prototype` before recursively merging source objects into an output object. An attacker who controls a source object passed to `mergeDeep` can pollute `Object.prototype`, potentially affecting all objects in the process and enabling further exploitation.\n\n## Details\n\nPrototype Pollution is a vulnerability affecting JavaScript. Prototype Pollution refers to the ability to inject properties into existing JavaScript language construct prototypes, such as objects. JavaScript allows all Object attributes to be altered, including their magical attributes such as `__proto__`, `constructor` and `prototype`. An attacker manipulates these attributes to overwrite, or pollute, a JavaScript application object prototype of the base object by injecting other values.  Properties on the `Object.prototype` are then inherited by all the JavaScript objects through the prototype chain. When that happens, this leads to either denial of service by triggering JavaScript exceptions, or it tampers with the application source code to force the code path that the attacker injects, thereby leading to remote code execution.\n\nThere are two main ways in which the pollution of prototypes occurs:\n\n-   Unsafe `Object` recursive merge\n    \n-   Property definition by path\n    \n\n### Unsafe Object recursive merge\n\nThe logic of a vulnerable recursive merge function follows the following high-level model:\n```\nmerge (target, source)\n\n  foreach property of source\n\n    if property exists and is an object on both the target and the source\n\n      merge(target[property], source[property])\n\n    else\n\n      target[property] = source[property]\n```\n<br>  \n\nWhen the source object contains a property named `__proto__` defined with `Object.defineProperty()` , the condition that checks if the property exists and is an object on both the target and the source passes and the merge recurses with the target, being the prototype of `Object` and the source of `Object` as defined by the attacker. Properties are then copied on the `Object` prototype.\n\nClone operations are a special sub-class of unsafe recursive merges, which occur when a recursive merge is conducted on an empty object: `merge({},source)`.\n\n`lodash` and `Hoek` are examples of libraries susceptible to recursive merge attacks.\n\n### Property definition by path\n\nThere are a few JavaScript libraries that use an API to define property values on an object based on a given path. The function that is generally affected contains this signature: `theFunction(object, path, value)`\n\nIf the attacker can control the value of “path”, they can set this value to `__proto__.myValue`. `myValue` is then assigned to the prototype of the class of the object.\n\n## Types of attacks\n\nThere are a few methods by which Prototype Pollution can be manipulated:\n\n| Type |Origin  |Short description |\n|--|--|--|\n| **Denial of service (DoS)**|Client  |This is the most likely attack. <br>DoS occurs when `Object` holds generic functions that are implicitly called for various operations (for example, `toString` and `valueOf`). <br> The attacker pollutes `Object.prototype.someattr` and alters its state to an unexpected value such as `Int` or `Object`. In this case, the code fails and is likely to cause a denial of service.  <br>**For example:** if an attacker pollutes `Object.prototype.toString` by defining it as an integer, if the codebase at any point was reliant on `someobject.toString()` it would fail. |\n |**Remote Code Execution**|Client|Remote code execution is generally only possible in cases where the codebase evaluates a specific attribute of an object, and then executes that evaluation.<br>**For example:** `eval(someobject.someattr)`. In this case, if the attacker pollutes `Object.prototype.someattr` they are likely to be able to leverage this in order to execute code.|\n|**Property Injection**|Client|The attacker pollutes properties that the codebase relies on for their informative value, including security properties such as cookies or tokens.<br>  **For example:** if a codebase checks privileges for `someuser.isAdmin`, then when the attacker pollutes `Object.prototype.isAdmin` and sets it to equal `true`, they can then achieve admin privileges.|\n\n## Affected environments\n\nThe following environments are susceptible to a Prototype Pollution attack:\n\n-   Application server\n    \n-   Web server\n\n-   Web browser\n    \n\n## How to prevent\n\n1.  Freeze the prototype— use `Object.freeze (Object.prototype)`.\n    \n2.  Require schema validation of JSON input.\n    \n3.  Avoid using unsafe recursive merge functions.\n    \n4.  Consider using objects without prototypes (for example, `Object.create(null)`), breaking the prototype chain and preventing pollution.\n    \n5.  As a best practice use `Map` instead of `Object`.\n\n### For more information on this vulnerability type:\n\n[Arteau, Olivier. “JavaScript prototype pollution attack in NodeJS application.” GitHub, 26 May 2018](https://github.com/HoLyVieR/prototype-pollution-nsec18/blob/master/paper/JavaScript_prototype_pollution_attack_in_NodeJS.pdf)\n\n## Remediation\nUpgrade `@graphql-tools/utils` to version 12.0.1 or higher.\n## References\n- [GitHub Commit](https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e)\n- [GitHub PR](https://github.com/ardatan/graphql-tools/pull/8423)\n- [GitHub PR](https://github.com/graphql-hive/gateway/pull/2600)\n- [Maintainer's Advisory](https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv)\n",
+        "epssDetails": {
+          "percentile": "0.27143",
+          "probability": "0.00356",
+          "modelVersion": "v2026.06.15"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-104852"
+          ],
+          "CWE": [
+            "CWE-1321"
+          ],
+          "GHSA": [
+            "GHSA-7mx3-vvmw-hjmv"
+          ]
+        },
+        "packageName": "@graphql-tools/utils",
+        "proprietary": false,
+        "creationTime": "2026-10-06T13:40:54.993466Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-10-06T00:13:54.277000Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "npm",
+        "publicationTime": "2026-10-06T13:40:55.188306Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-10-07T13:32:37.361867Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "back@0.0.1",
+          "@nestjs/graphql@13.4.5",
+          "@graphql-tools/utils@12.0.0"
+        ],
+        "upgradePath": [
+          false,
+          "@nestjs/graphql@14.0.1",
+          "@graphql-tools/utils@12.0.1"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "@graphql-tools/utils",
+        "version": "12.0.0"
+      },
+      {
+        "id": "SNYK-JS-GRAPHQLTOOLSUTILS-20537055",
+        "title": "Prototype Pollution",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "credit": [
+          "tepel-chen"
+        ],
+        "semver": {
+          "vulnerable": [
+            "<12.0.1"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "12.0.1"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "js",
+        "severity": "high",
+        "cvssScore": 8.2,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "@graphql-tools/utils",
+        "references": [
+          {
+            "url": "https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/pull/8423",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/graphql-hive/gateway/pull/2600",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv",
+            "title": "Maintainer's Advisory"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.2,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Red Hat",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "description": "## Overview\n[@graphql-tools/utils](https://www.npmjs.org/package/@graphql-tools/utils) is a Common package containing utils and types for GraphQL tools\n\nAffected versions of this package are vulnerable to Prototype Pollution via the `mergeDeep` function, which fails to block reserved property keys such as `__proto__`, `constructor`, and `prototype` before recursively merging source objects into an output object. An attacker who controls a source object passed to `mergeDeep` can pollute `Object.prototype`, potentially affecting all objects in the process and enabling further exploitation.\n\n## Details\n\nPrototype Pollution is a vulnerability affecting JavaScript. Prototype Pollution refers to the ability to inject properties into existing JavaScript language construct prototypes, such as objects. JavaScript allows all Object attributes to be altered, including their magical attributes such as `__proto__`, `constructor` and `prototype`. An attacker manipulates these attributes to overwrite, or pollute, a JavaScript application object prototype of the base object by injecting other values.  Properties on the `Object.prototype` are then inherited by all the JavaScript objects through the prototype chain. When that happens, this leads to either denial of service by triggering JavaScript exceptions, or it tampers with the application source code to force the code path that the attacker injects, thereby leading to remote code execution.\n\nThere are two main ways in which the pollution of prototypes occurs:\n\n-   Unsafe `Object` recursive merge\n    \n-   Property definition by path\n    \n\n### Unsafe Object recursive merge\n\nThe logic of a vulnerable recursive merge function follows the following high-level model:\n```\nmerge (target, source)\n\n  foreach property of source\n\n    if property exists and is an object on both the target and the source\n\n      merge(target[property], source[property])\n\n    else\n\n      target[property] = source[property]\n```\n<br>  \n\nWhen the source object contains a property named `__proto__` defined with `Object.defineProperty()` , the condition that checks if the property exists and is an object on both the target and the source passes and the merge recurses with the target, being the prototype of `Object` and the source of `Object` as defined by the attacker. Properties are then copied on the `Object` prototype.\n\nClone operations are a special sub-class of unsafe recursive merges, which occur when a recursive merge is conducted on an empty object: `merge({},source)`.\n\n`lodash` and `Hoek` are examples of libraries susceptible to recursive merge attacks.\n\n### Property definition by path\n\nThere are a few JavaScript libraries that use an API to define property values on an object based on a given path. The function that is generally affected contains this signature: `theFunction(object, path, value)`\n\nIf the attacker can control the value of “path”, they can set this value to `__proto__.myValue`. `myValue` is then assigned to the prototype of the class of the object.\n\n## Types of attacks\n\nThere are a few methods by which Prototype Pollution can be manipulated:\n\n| Type |Origin  |Short description |\n|--|--|--|\n| **Denial of service (DoS)**|Client  |This is the most likely attack. <br>DoS occurs when `Object` holds generic functions that are implicitly called for various operations (for example, `toString` and `valueOf`). <br> The attacker pollutes `Object.prototype.someattr` and alters its state to an unexpected value such as `Int` or `Object`. In this case, the code fails and is likely to cause a denial of service.  <br>**For example:** if an attacker pollutes `Object.prototype.toString` by defining it as an integer, if the codebase at any point was reliant on `someobject.toString()` it would fail. |\n |**Remote Code Execution**|Client|Remote code execution is generally only possible in cases where the codebase evaluates a specific attribute of an object, and then executes that evaluation.<br>**For example:** `eval(someobject.someattr)`. In this case, if the attacker pollutes `Object.prototype.someattr` they are likely to be able to leverage this in order to execute code.|\n|**Property Injection**|Client|The attacker pollutes properties that the codebase relies on for their informative value, including security properties such as cookies or tokens.<br>  **For example:** if a codebase checks privileges for `someuser.isAdmin`, then when the attacker pollutes `Object.prototype.isAdmin` and sets it to equal `true`, they can then achieve admin privileges.|\n\n## Affected environments\n\nThe following environments are susceptible to a Prototype Pollution attack:\n\n-   Application server\n    \n-   Web server\n\n-   Web browser\n    \n\n## How to prevent\n\n1.  Freeze the prototype— use `Object.freeze (Object.prototype)`.\n    \n2.  Require schema validation of JSON input.\n    \n3.  Avoid using unsafe recursive merge functions.\n    \n4.  Consider using objects without prototypes (for example, `Object.create(null)`), breaking the prototype chain and preventing pollution.\n    \n5.  As a best practice use `Map` instead of `Object`.\n\n### For more information on this vulnerability type:\n\n[Arteau, Olivier. “JavaScript prototype pollution attack in NodeJS application.” GitHub, 26 May 2018](https://github.com/HoLyVieR/prototype-pollution-nsec18/blob/master/paper/JavaScript_prototype_pollution_attack_in_NodeJS.pdf)\n\n## Remediation\nUpgrade `@graphql-tools/utils` to version 12.0.1 or higher.\n## References\n- [GitHub Commit](https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e)\n- [GitHub PR](https://github.com/ardatan/graphql-tools/pull/8423)\n- [GitHub PR](https://github.com/graphql-hive/gateway/pull/2600)\n- [Maintainer's Advisory](https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv)\n",
+        "epssDetails": {
+          "percentile": "0.27143",
+          "probability": "0.00356",
+          "modelVersion": "v2026.06.15"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-104852"
+          ],
+          "CWE": [
+            "CWE-1321"
+          ],
+          "GHSA": [
+            "GHSA-7mx3-vvmw-hjmv"
+          ]
+        },
+        "packageName": "@graphql-tools/utils",
+        "proprietary": false,
+        "creationTime": "2026-10-06T13:40:54.993466Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-10-06T00:13:54.277000Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "npm",
+        "publicationTime": "2026-10-06T13:40:55.188306Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-10-07T13:32:37.361867Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "back@0.0.1",
+          "@nestjs/graphql@13.4.5",
+          "@graphql-tools/merge@9.2.3",
+          "@graphql-tools/utils@12.0.0"
+        ],
+        "upgradePath": [
+          false,
+          "@nestjs/graphql@13.4.5",
+          "@graphql-tools/merge@9.2.3",
+          "@graphql-tools/utils@12.0.4"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "@graphql-tools/utils",
+        "version": "12.0.0"
+      },
+      {
+        "id": "SNYK-JS-GRAPHQLTOOLSUTILS-20537055",
+        "title": "Prototype Pollution",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "credit": [
+          "tepel-chen"
+        ],
+        "semver": {
+          "vulnerable": [
+            "<12.0.1"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "12.0.1"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "js",
+        "severity": "high",
+        "cvssScore": 8.2,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "@graphql-tools/utils",
+        "references": [
+          {
+            "url": "https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/pull/8423",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/graphql-hive/gateway/pull/2600",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv",
+            "title": "Maintainer's Advisory"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.2,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Red Hat",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "description": "## Overview\n[@graphql-tools/utils](https://www.npmjs.org/package/@graphql-tools/utils) is a Common package containing utils and types for GraphQL tools\n\nAffected versions of this package are vulnerable to Prototype Pollution via the `mergeDeep` function, which fails to block reserved property keys such as `__proto__`, `constructor`, and `prototype` before recursively merging source objects into an output object. An attacker who controls a source object passed to `mergeDeep` can pollute `Object.prototype`, potentially affecting all objects in the process and enabling further exploitation.\n\n## Details\n\nPrototype Pollution is a vulnerability affecting JavaScript. Prototype Pollution refers to the ability to inject properties into existing JavaScript language construct prototypes, such as objects. JavaScript allows all Object attributes to be altered, including their magical attributes such as `__proto__`, `constructor` and `prototype`. An attacker manipulates these attributes to overwrite, or pollute, a JavaScript application object prototype of the base object by injecting other values.  Properties on the `Object.prototype` are then inherited by all the JavaScript objects through the prototype chain. When that happens, this leads to either denial of service by triggering JavaScript exceptions, or it tampers with the application source code to force the code path that the attacker injects, thereby leading to remote code execution.\n\nThere are two main ways in which the pollution of prototypes occurs:\n\n-   Unsafe `Object` recursive merge\n    \n-   Property definition by path\n    \n\n### Unsafe Object recursive merge\n\nThe logic of a vulnerable recursive merge function follows the following high-level model:\n```\nmerge (target, source)\n\n  foreach property of source\n\n    if property exists and is an object on both the target and the source\n\n      merge(target[property], source[property])\n\n    else\n\n      target[property] = source[property]\n```\n<br>  \n\nWhen the source object contains a property named `__proto__` defined with `Object.defineProperty()` , the condition that checks if the property exists and is an object on both the target and the source passes and the merge recurses with the target, being the prototype of `Object` and the source of `Object` as defined by the attacker. Properties are then copied on the `Object` prototype.\n\nClone operations are a special sub-class of unsafe recursive merges, which occur when a recursive merge is conducted on an empty object: `merge({},source)`.\n\n`lodash` and `Hoek` are examples of libraries susceptible to recursive merge attacks.\n\n### Property definition by path\n\nThere are a few JavaScript libraries that use an API to define property values on an object based on a given path. The function that is generally affected contains this signature: `theFunction(object, path, value)`\n\nIf the attacker can control the value of “path”, they can set this value to `__proto__.myValue`. `myValue` is then assigned to the prototype of the class of the object.\n\n## Types of attacks\n\nThere are a few methods by which Prototype Pollution can be manipulated:\n\n| Type |Origin  |Short description |\n|--|--|--|\n| **Denial of service (DoS)**|Client  |This is the most likely attack. <br>DoS occurs when `Object` holds generic functions that are implicitly called for various operations (for example, `toString` and `valueOf`). <br> The attacker pollutes `Object.prototype.someattr` and alters its state to an unexpected value such as `Int` or `Object`. In this case, the code fails and is likely to cause a denial of service.  <br>**For example:** if an attacker pollutes `Object.prototype.toString` by defining it as an integer, if the codebase at any point was reliant on `someobject.toString()` it would fail. |\n |**Remote Code Execution**|Client|Remote code execution is generally only possible in cases where the codebase evaluates a specific attribute of an object, and then executes that evaluation.<br>**For example:** `eval(someobject.someattr)`. In this case, if the attacker pollutes `Object.prototype.someattr` they are likely to be able to leverage this in order to execute code.|\n|**Property Injection**|Client|The attacker pollutes properties that the codebase relies on for their informative value, including security properties such as cookies or tokens.<br>  **For example:** if a codebase checks privileges for `someuser.isAdmin`, then when the attacker pollutes `Object.prototype.isAdmin` and sets it to equal `true`, they can then achieve admin privileges.|\n\n## Affected environments\n\nThe following environments are susceptible to a Prototype Pollution attack:\n\n-   Application server\n    \n-   Web server\n\n-   Web browser\n    \n\n## How to prevent\n\n1.  Freeze the prototype— use `Object.freeze (Object.prototype)`.\n    \n2.  Require schema validation of JSON input.\n    \n3.  Avoid using unsafe recursive merge functions.\n    \n4.  Consider using objects without prototypes (for example, `Object.create(null)`), breaking the prototype chain and preventing pollution.\n    \n5.  As a best practice use `Map` instead of `Object`.\n\n### For more information on this vulnerability type:\n\n[Arteau, Olivier. “JavaScript prototype pollution attack in NodeJS application.” GitHub, 26 May 2018](https://github.com/HoLyVieR/prototype-pollution-nsec18/blob/master/paper/JavaScript_prototype_pollution_attack_in_NodeJS.pdf)\n\n## Remediation\nUpgrade `@graphql-tools/utils` to version 12.0.1 or higher.\n## References\n- [GitHub Commit](https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e)\n- [GitHub PR](https://github.com/ardatan/graphql-tools/pull/8423)\n- [GitHub PR](https://github.com/graphql-hive/gateway/pull/2600)\n- [Maintainer's Advisory](https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv)\n",
+        "epssDetails": {
+          "percentile": "0.27143",
+          "probability": "0.00356",
+          "modelVersion": "v2026.06.15"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-104852"
+          ],
+          "CWE": [
+            "CWE-1321"
+          ],
+          "GHSA": [
+            "GHSA-7mx3-vvmw-hjmv"
+          ]
+        },
+        "packageName": "@graphql-tools/utils",
+        "proprietary": false,
+        "creationTime": "2026-10-06T13:40:54.993466Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-10-06T00:13:54.277000Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "npm",
+        "publicationTime": "2026-10-06T13:40:55.188306Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-10-07T13:32:37.361867Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "back@0.0.1",
+          "@nestjs/graphql@13.4.5",
+          "@graphql-tools/schema@10.1.0",
+          "@graphql-tools/utils@12.0.0"
+        ],
+        "upgradePath": [
+          false,
+          "@nestjs/graphql@13.4.5",
+          "@graphql-tools/schema@10.1.0",
+          "@graphql-tools/utils@12.0.4"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "@graphql-tools/utils",
+        "version": "12.0.0"
+      },
+      {
+        "id": "SNYK-JS-GRAPHQLTOOLSUTILS-20537055",
+        "title": "Prototype Pollution",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "credit": [
+          "tepel-chen"
+        ],
+        "semver": {
+          "vulnerable": [
+            "<12.0.1"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "12.0.1"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "js",
+        "severity": "high",
+        "cvssScore": 8.2,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "@graphql-tools/utils",
+        "references": [
+          {
+            "url": "https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/pull/8423",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/graphql-hive/gateway/pull/2600",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv",
+            "title": "Maintainer's Advisory"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.2,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:37.361867Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Red Hat",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-10-07T13:32:36.996627Z"
+          }
+        ],
+        "description": "## Overview\n[@graphql-tools/utils](https://www.npmjs.org/package/@graphql-tools/utils) is a Common package containing utils and types for GraphQL tools\n\nAffected versions of this package are vulnerable to Prototype Pollution via the `mergeDeep` function, which fails to block reserved property keys such as `__proto__`, `constructor`, and `prototype` before recursively merging source objects into an output object. An attacker who controls a source object passed to `mergeDeep` can pollute `Object.prototype`, potentially affecting all objects in the process and enabling further exploitation.\n\n## Details\n\nPrototype Pollution is a vulnerability affecting JavaScript. Prototype Pollution refers to the ability to inject properties into existing JavaScript language construct prototypes, such as objects. JavaScript allows all Object attributes to be altered, including their magical attributes such as `__proto__`, `constructor` and `prototype`. An attacker manipulates these attributes to overwrite, or pollute, a JavaScript application object prototype of the base object by injecting other values.  Properties on the `Object.prototype` are then inherited by all the JavaScript objects through the prototype chain. When that happens, this leads to either denial of service by triggering JavaScript exceptions, or it tampers with the application source code to force the code path that the attacker injects, thereby leading to remote code execution.\n\nThere are two main ways in which the pollution of prototypes occurs:\n\n-   Unsafe `Object` recursive merge\n    \n-   Property definition by path\n    \n\n### Unsafe Object recursive merge\n\nThe logic of a vulnerable recursive merge function follows the following high-level model:\n```\nmerge (target, source)\n\n  foreach property of source\n\n    if property exists and is an object on both the target and the source\n\n      merge(target[property], source[property])\n\n    else\n\n      target[property] = source[property]\n```\n<br>  \n\nWhen the source object contains a property named `__proto__` defined with `Object.defineProperty()` , the condition that checks if the property exists and is an object on both the target and the source passes and the merge recurses with the target, being the prototype of `Object` and the source of `Object` as defined by the attacker. Properties are then copied on the `Object` prototype.\n\nClone operations are a special sub-class of unsafe recursive merges, which occur when a recursive merge is conducted on an empty object: `merge({},source)`.\n\n`lodash` and `Hoek` are examples of libraries susceptible to recursive merge attacks.\n\n### Property definition by path\n\nThere are a few JavaScript libraries that use an API to define property values on an object based on a given path. The function that is generally affected contains this signature: `theFunction(object, path, value)`\n\nIf the attacker can control the value of “path”, they can set this value to `__proto__.myValue`. `myValue` is then assigned to the prototype of the class of the object.\n\n## Types of attacks\n\nThere are a few methods by which Prototype Pollution can be manipulated:\n\n| Type |Origin  |Short description |\n|--|--|--|\n| **Denial of service (DoS)**|Client  |This is the most likely attack. <br>DoS occurs when `Object` holds generic functions that are implicitly called for various operations (for example, `toString` and `valueOf`). <br> The attacker pollutes `Object.prototype.someattr` and alters its state to an unexpected value such as `Int` or `Object`. In this case, the code fails and is likely to cause a denial of service.  <br>**For example:** if an attacker pollutes `Object.prototype.toString` by defining it as an integer, if the codebase at any point was reliant on `someobject.toString()` it would fail. |\n |**Remote Code Execution**|Client|Remote code execution is generally only possible in cases where the codebase evaluates a specific attribute of an object, and then executes that evaluation.<br>**For example:** `eval(someobject.someattr)`. In this case, if the attacker pollutes `Object.prototype.someattr` they are likely to be able to leverage this in order to execute code.|\n|**Property Injection**|Client|The attacker pollutes properties that the codebase relies on for their informative value, including security properties such as cookies or tokens.<br>  **For example:** if a codebase checks privileges for `someuser.isAdmin`, then when the attacker pollutes `Object.prototype.isAdmin` and sets it to equal `true`, they can then achieve admin privileges.|\n\n## Affected environments\n\nThe following environments are susceptible to a Prototype Pollution attack:\n\n-   Application server\n    \n-   Web server\n\n-   Web browser\n    \n\n## How to prevent\n\n1.  Freeze the prototype— use `Object.freeze (Object.prototype)`.\n    \n2.  Require schema validation of JSON input.\n    \n3.  Avoid using unsafe recursive merge functions.\n    \n4.  Consider using objects without prototypes (for example, `Object.create(null)`), breaking the prototype chain and preventing pollution.\n    \n5.  As a best practice use `Map` instead of `Object`.\n\n### For more information on this vulnerability type:\n\n[Arteau, Olivier. “JavaScript prototype pollution attack in NodeJS application.” GitHub, 26 May 2018](https://github.com/HoLyVieR/prototype-pollution-nsec18/blob/master/paper/JavaScript_prototype_pollution_attack_in_NodeJS.pdf)\n\n## Remediation\nUpgrade `@graphql-tools/utils` to version 12.0.1 or higher.\n## References\n- [GitHub Commit](https://github.com/ardatan/graphql-tools/commit/0b9529f1988fd36186a7c106a6efe0356f1b7f2e)\n- [GitHub PR](https://github.com/ardatan/graphql-tools/pull/8423)\n- [GitHub PR](https://github.com/graphql-hive/gateway/pull/2600)\n- [Maintainer's Advisory](https://github.com/ardatan/graphql-tools/security/advisories/GHSA-7mx3-vvmw-hjmv)\n",
+        "epssDetails": {
+          "percentile": "0.27143",
+          "probability": "0.00356",
+          "modelVersion": "v2026.06.15"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-104852"
+          ],
+          "CWE": [
+            "CWE-1321"
+          ],
+          "GHSA": [
+            "GHSA-7mx3-vvmw-hjmv"
+          ]
+        },
+        "packageName": "@graphql-tools/utils",
+        "proprietary": false,
+        "creationTime": "2026-10-06T13:40:54.993466Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-10-06T00:13:54.277000Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "npm",
+        "publicationTime": "2026-10-06T13:40:55.188306Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-10-07T13:32:37.361867Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "back@0.0.1",
+          "@nestjs/graphql@13.4.5",
+          "@graphql-tools/schema@10.1.0",
+          "@graphql-tools/merge@9.2.3",
+          "@graphql-tools/utils@12.0.0"
+        ],
+        "upgradePath": [
+          false,
+          "@nestjs/graphql@13.4.5",
+          "@graphql-tools/schema@10.1.0",
+          "@graphql-tools/merge@9.2.7",
+          "@graphql-tools/utils@12.0.4"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "@graphql-tools/utils",
+        "version": "12.0.0"
+      },
+      {
+        "id": "SNYK-JS-UUID-16133035",
+        "title": "Improper Validation of Specified Index, Position, or Offset in Input",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P",
+        "credit": [
+          "0xStraw-Hat"
+        ],
+        "semver": {
+          "vulnerable": [
+            "<11.1.1",
+            ">=12.0.0 <14.0.0"
+          ]
+        },
+        "exploit": "Proof of Concept",
+        "fixedIn": [
+          "11.1.1",
+          "14.0.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "js",
+        "severity": "medium",
+        "cvssScore": 6.3,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "uuid",
+        "references": [
+          {
+            "url": "https://github.com/uuidjs/uuid/commit/32389c887c9e75f90442ee4cc95bbab0c4e8346e",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/uuidjs/uuid/commit/3d2c5b0342f0fcb52a5ac681c3d47c13e7444b34",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/uuidjs/uuid/releases/tag/v14.0.0",
+            "title": "GitHub Release"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "NVD",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2026-05-12T01:14:02.230690Z"
+          },
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L",
+            "cvssV3BaseScore": 4.8,
+            "modificationTime": "2026-05-08T12:59:51.566928Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:P",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6.3,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-09-24T14:15:17.569588Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N/E:P",
+            "assigner": "Snyk",
+            "severity": "low",
+            "baseScore": 3.7,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-09-24T14:15:17.569588Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+            "assigner": "NVD",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-05-12T01:14:02.230690Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 4.8,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-05-08T12:59:51.566928Z"
+          }
+        ],
+        "description": "## Overview\n[uuid](https://github.com/kelektiv/node-uuid) is a RFC4122 (v1, v4, and v5) compliant UUID library.\n\nAffected versions of this package are vulnerable to Improper Validation of Specified Index, Position, or Offset in Input due to accepting external output buffers but not rejecting out-of-range writes (small `buf` or large `offset`). This inconsistency allows silent partial writes into caller-provided buffers.\n## PoC\n```\r\ncd /home/StrawHat/uuid\r\nnpm ci\r\nnpm run build\r\n\r\nnode --input-type=module -e \"\r\nimport {v4,v5,v6} from './dist-node/index.js';\r\nconst ns='6ba7b810-9dad-11d1-80b4-00c04fd430c8';\r\nfor (const [name,fn] of [\r\n  ['v4',()=>v4({},new Uint8Array(8),4)],\r\n  ['v5',()=>v5('x',ns,new Uint8Array(8),4)],\r\n  ['v6',()=>v6({},new Uint8Array(8),4)],\r\n]) {\r\n  try { fn(); console.log(name,'NO_THROW'); }\r\n  catch(e){ console.log(name,'THREW',e.name); }\r\n}\"\r\n```\n## Remediation\nUpgrade `uuid` to version 11.1.1, 14.0.0 or higher.\n## References\n- [GitHub Commit](https://github.com/uuidjs/uuid/commit/32389c887c9e75f90442ee4cc95bbab0c4e8346e)\n- [GitHub Commit](https://github.com/uuidjs/uuid/commit/3d2c5b0342f0fcb52a5ac681c3d47c13e7444b34)\n- [GitHub Release](https://github.com/uuidjs/uuid/releases/tag/v14.0.0)\n",
+        "epssDetails": {
+          "percentile": "0.28914",
+          "probability": "0.00378",
+          "modelVersion": "v2026.06.15"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-41907"
+          ],
+          "CWE": [
+            "CWE-1285"
+          ],
+          "GHSA": [
+            "GHSA-w5hq-g745-h8pq"
+          ]
+        },
+        "packageName": "uuid",
+        "proprietary": false,
+        "creationTime": "2026-04-23T08:34:15.552273Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-04-18T21:00:00Z",
+        "exploitDetails": {
+          "sources": [
+            "Snyk"
+          ],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Proof of Concept",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Proof of Concept",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "npm",
+        "publicationTime": "2026-04-23T08:34:16.017476Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-09-24T14:15:17.569588Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "medium",
+        "from": [
+          "back@0.0.1",
+          "@apollo/server@4.13.0",
+          "uuid@9.0.1"
+        ],
+        "upgradePath": [
+          false,
+          "@apollo/server@5.4.0",
+          "uuid@11.1.1"
+        ],
+        "isUpgradable": true,
+        "isPatchable": false,
+        "name": "uuid",
+        "version": "9.0.1"
+      }
+    ],
+    "ok": false,
+    "dependencyCount": 385,
+    "org": "1eyaba",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "npm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false,
+      "autoApproveIgnores": false,
+      "approvalWorkflowEnabled": false
+    },
+    "summary": "9 vulnerable dependency paths",
+    "remediation": {
+      "unresolved": [],
+      "upgrade": {
+        "@apollo/server@4.13.0": {
+          "upgradeTo": "@apollo/server@5.5.0",
+          "upgrades": [
+            "@apollo/server@4.13.0",
+            "@graphql-tools/utils@9.2.1",
+            "uuid@9.0.1"
+          ],
+          "vulns": [
+            "SNYK-JS-APOLLOSERVER-15790568",
+            "SNYK-JS-GRAPHQLTOOLSUTILS-20537055",
+            "SNYK-JS-UUID-16133035"
+          ]
+        },
+        "@nestjs/graphql@13.4.5": {
+          "upgradeTo": "@nestjs/graphql@14.0.1",
+          "upgrades": [
+            "@graphql-tools/utils@12.0.0"
+          ],
+          "vulns": [
+            "SNYK-JS-GRAPHQLTOOLSUTILS-20537055"
+          ]
+        },
+        "graphql-upload@13.0.0": {
+          "upgradeTo": "graphql-upload@15.0.0",
+          "upgrades": [
+            "dicer@0.3.0"
+          ],
+          "vulns": [
+            "SNYK-JS-DICER-2311764"
+          ]
+        }
+      },
+      "patch": {},
+      "ignore": {},
+      "pin": {}
+    },
+    "filesystemPolicy": false,
+    "filtered": {
+      "ignore": [],
+      "patch": []
+    },
+    "uniqueCount": 4,
+    "projectName": "back",
+    "foundProjectCount": 1,
+    "displayTargetFile": "back\\package-lock.json",
+    "hasUnknownVersions": false,
+    "path": "D:\\Documents\\gl5\\devsecops\\tp1\\Covoiturage_Platform"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 140,
+    "org": "1eyaba",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "npm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false,
+      "autoApproveIgnores": false,
+      "approvalWorkflowEnabled": false
+    },
+    "summary": "No known vulnerabilities",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "tailadmin-react",
+    "foundProjectCount": 1,
+    "displayTargetFile": "front\\package-lock.json",
+    "hasUnknownVersions": false,
+    "path": "D:\\Documents\\gl5\\devsecops\\tp1\\Covoiturage_Platform"
+  }
+]
