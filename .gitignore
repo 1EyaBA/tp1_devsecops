@@ -5,9 +5,6 @@ back/node_modules/
 back/build/
 node_modules/
 front/node_modules/
-package-lock.json
-back/package-lock.json
-front/package-lock.json
 /node_modules/package-lock.json
 node_modules/.package-lock.json
 # Logs (shared + back)
@@ -44,6 +41,7 @@ back/.nyc_output
 
 # Env files (back)
 back/.env
+back/.env.backup
 back/.env.development.local
 back/.env.test.local
 back/.env.production.local
