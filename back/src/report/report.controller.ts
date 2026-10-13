@@ -23,7 +23,6 @@ const ALLOWED_MIME = [
   'image/png', 'image/jpeg', 'image/webp', 'application/pdf', 'video/mp4',
 ];
 const ALLOWED_EXT = ['.png', '.jpg', '.jpeg', '.webp', '.pdf', '.mp4'];
-const MAX_PROOF_SIZE = 5 * 1024 * 1024; // 5 Mo (Sonar S5693 : seuil max 8 Mo)
 
 @Controller('reports')
 @UseGuards(AuthGuard('jwt'))
@@ -40,7 +39,7 @@ export class ReportController {
             cb(null, `${randomUUID()}${extname(file.originalname).toLowerCase()}`);
           },
         }),
-        limits: { fileSize: MAX_PROOF_SIZE, files: 1 },
+        limits: { fileSize: 5_242_880, files: 1 }, // 5 Mo, en littéral : Sonar S5693 (seuil 8 Mo) ne calcule pas 5 * 1024 * 1024
         fileFilter: (_req, file, cb) => {
           const ext = extname(file.originalname).toLowerCase();
           if (!ALLOWED_MIME.includes(file.mimetype) || !ALLOWED_EXT.includes(ext)) {
