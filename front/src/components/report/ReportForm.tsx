@@ -273,7 +273,7 @@ const ReportForm: React.FC<ReportFormProps> = ({
                                 type="file"
                                 id="proof-file"
                                 onChange={handleFileChange}
-                                accept="image/*,video/*,.pdf,.doc,.docx"
+                                accept=".png,.jpg,.jpeg,.webp,.pdf,.mp4"
                                 className="hidden"
                             />
 
@@ -287,7 +287,7 @@ const ReportForm: React.FC<ReportFormProps> = ({
                                     </svg>
                                     <p className="text-indigo-600 dark:text-indigo-400 font-medium">Upload evidence (optional)</p>
                                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Click or drag & drop your file here</p>
-                                    <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">PNG, JPG, GIF, PDF, DOC up to 10MB</p>
+                                    <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">PNG, JPG, WEBP, PDF, MP4 up to 10MB</p>
                                 </label>
                             ) : (
                                 <div className="flex flex-col items-center">

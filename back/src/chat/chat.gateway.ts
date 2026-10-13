@@ -20,7 +20,8 @@ interface MessagePayload {
 
 @WebSocketGateway({
   cors: {
-    origin: '*', 
+    origin: ['http://localhost:5173'],
+    credentials: true,
   },
 })
 export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {

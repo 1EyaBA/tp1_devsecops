@@ -11,11 +11,19 @@ import {
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
+import { randomUUID } from 'crypto';
 import { Express } from 'express';
 
 import { ReportService } from './report.service';
 import { CreateReportDto } from './dto/create-report.dto';
 import {AuthGuard} from "@nestjs/passport";
+
+// Types de preuves acceptés : le type MIME ET l'extension doivent être dans la liste
+const ALLOWED_MIME = [
+  'image/png', 'image/jpeg', 'image/webp', 'application/pdf', 'video/mp4',
+];
+const ALLOWED_EXT = ['.png', '.jpg', '.jpeg', '.webp', '.pdf', '.mp4'];
+const MAX_PROOF_SIZE = 10 * 1024 * 1024; // 10 Mo
 
 @Controller('reports')
 @UseGuards(AuthGuard('jwt'))
@@ -28,10 +36,18 @@ export class ReportController {
         storage: diskStorage({
           destination: './uploads/proofs',
           filename: (_req, file, cb) => {
-            const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-            cb(null, `${uniqueSuffix}${extname(file.originalname)}`);
+            // randomUUID : générateur cryptographique, nom imprévisible
+            cb(null, `${randomUUID()}${extname(file.originalname).toLowerCase()}`);
           },
         }),
+        limits: { fileSize: MAX_PROOF_SIZE, files: 1 },
+        fileFilter: (_req, file, cb) => {
+          const ext = extname(file.originalname).toLowerCase();
+          if (!ALLOWED_MIME.includes(file.mimetype) || !ALLOWED_EXT.includes(ext)) {
+            return cb(new BadRequestException('Type de fichier non autorisé'), false);
+          }
+          cb(null, true);
+        },
       }),
   )
 
