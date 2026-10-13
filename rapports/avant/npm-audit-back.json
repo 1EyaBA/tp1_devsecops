@@ -1,0 +1,1689 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@apollo/server": {
+      "name": "@apollo/server",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@graphql-tools/schema",
+        {
+          "source": 1115452,
+          "name": "@apollo/server",
+          "dependency": "@apollo/server",
+          "title": "Apollo Server: Browser bug allows for bypass of XS-Search (read-only Cross-Site Request Forgery) prevention",
+          "url": "https://github.com/advisories/GHSA-9q82-xgwf-vj6h",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-200"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<5.5.0"
+        },
+        "uuid"
+      ],
+      "effects": [
+        "@apollo/server-plugin-landing-page-graphql-playground",
+        "@nestjs/apollo"
+      ],
+      "range": "<=5.4.0",
+      "nodes": [
+        "node_modules/@apollo/server"
+      ],
+      "fixAvailable": {
+        "name": "@apollo/server",
+        "version": "5.5.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@apollo/server-plugin-landing-page-graphql-playground": {
+      "name": "@apollo/server-plugin-landing-page-graphql-playground",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@apollo/server"
+      ],
+      "effects": [
+        "@nestjs/apollo"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@apollo/server-plugin-landing-page-graphql-playground"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/apollo",
+        "version": "13.4.5",
+        "isSemVerMajor": false
+      }
+    },
+    "@faker-js/faker": {
+      "name": "@faker-js/faker",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1158500,
+          "name": "@faker-js/faker",
+          "dependency": "@faker-js/faker",
+          "title": "Faker: helpers.fake exploitable into arbritary code execution",
+          "url": "https://github.com/advisories/GHSA-qxc2-j82w-r537",
+          "severity": "high",
+          "cwe": [
+            "CWE-95"
+          ],
+          "cvss": {
+            "score": 7.8,
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+          },
+          "range": "<=10.4.0"
+        }
+      ],
+      "effects": [],
+      "range": "<=10.4.0",
+      "nodes": [
+        "node_modules/@faker-js/faker"
+      ],
+      "fixAvailable": {
+        "name": "@faker-js/faker",
+        "version": "10.6.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@graphql-tools/merge": {
+      "name": "@graphql-tools/merge",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@graphql-tools/utils"
+      ],
+      "effects": [
+        "@graphql-tools/schema"
+      ],
+      "range": "<=9.2.3-alpha-20260811213401-1eff5799faeb287f78dcafd6415e2afe144cee07",
+      "nodes": [
+        "node_modules/@graphql-tools/merge",
+        "node_modules/apollo-server-core/node_modules/@graphql-tools/merge"
+      ],
+      "fixAvailable": false
+    },
+    "@graphql-tools/mock": {
+      "name": "@graphql-tools/mock",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@graphql-tools/schema",
+        "@graphql-tools/utils"
+      ],
+      "effects": [
+        "apollo-server-core"
+      ],
+      "range": "<=9.1.13-alpha-20260811213401-1eff5799faeb287f78dcafd6415e2afe144cee07",
+      "nodes": [
+        "node_modules/@graphql-tools/mock"
+      ],
+      "fixAvailable": false
+    },
+    "@graphql-tools/schema": {
+      "name": "@graphql-tools/schema",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@graphql-tools/merge",
+        "@graphql-tools/utils"
+      ],
+      "effects": [
+        "@graphql-tools/mock"
+      ],
+      "range": "<=10.1.0-alpha-20260811213401-1eff5799faeb287f78dcafd6415e2afe144cee07",
+      "nodes": [
+        "node_modules/@graphql-tools/schema",
+        "node_modules/apollo-server-core/node_modules/@graphql-tools/schema"
+      ],
+      "fixAvailable": false
+    },
+    "@graphql-tools/utils": {
+      "name": "@graphql-tools/utils",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1241230,
+          "name": "@graphql-tools/utils",
+          "dependency": "@graphql-tools/utils",
+          "title": "GraphQL Tools has prototype pollution in well-established utility function `mergeDeep`",
+          "url": "https://github.com/advisories/GHSA-7mx3-vvmw-hjmv",
+          "severity": "high",
+          "cwe": [
+            "CWE-1321"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=12.0.0"
+        }
+      ],
+      "effects": [
+        "@graphql-tools/merge",
+        "@graphql-tools/mock",
+        "@graphql-tools/schema",
+        "@nestjs/graphql"
+      ],
+      "range": "<=12.0.0",
+      "nodes": [
+        "node_modules/@graphql-tools/utils",
+        "node_modules/@nestjs/graphql/node_modules/@graphql-tools/utils",
+        "node_modules/apollo-server-core/node_modules/@graphql-tools/utils"
+      ],
+      "fixAvailable": false
+    },
+    "@istanbuljs/load-nyc-config": {
+      "name": "@istanbuljs/load-nyc-config",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "js-yaml"
+      ],
+      "effects": [
+        "babel-plugin-istanbul"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@istanbuljs/load-nyc-config"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@jest/console": {
+      "name": "@jest/console",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "jest-message-util"
+      ],
+      "effects": [
+        "@jest/core",
+        "@jest/reporters",
+        "@jest/test-result",
+        "jest-runner"
+      ],
+      "range": "25.4.0 - 30.2.0",
+      "nodes": [
+        "node_modules/@jest/console"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@jest/core": {
+      "name": "@jest/core",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/console",
+        "@jest/reporters",
+        "@jest/test-result",
+        "@jest/transform",
+        "jest-config",
+        "jest-haste-map",
+        "jest-message-util",
+        "jest-resolve",
+        "jest-resolve-dependencies",
+        "jest-runner",
+        "jest-runtime",
+        "jest-snapshot",
+        "jest-watcher",
+        "micromatch"
+      ],
+      "effects": [
+        "jest",
+        "jest-cli"
+      ],
+      "range": "<=30.2.0",
+      "nodes": [
+        "node_modules/@jest/core"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@jest/environment": {
+      "name": "@jest/environment",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/fake-timers"
+      ],
+      "effects": [
+        "@jest/globals",
+        "jest-circus",
+        "jest-runner"
+      ],
+      "range": "<=30.2.0",
+      "nodes": [
+        "node_modules/@jest/environment"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@jest/expect": {
+      "name": "@jest/expect",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "expect",
+        "jest-snapshot"
+      ],
+      "effects": [
+        "@jest/globals",
+        "jest-circus"
+      ],
+      "range": "<=30.2.0",
+      "nodes": [
+        "node_modules/@jest/expect"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@jest/fake-timers": {
+      "name": "@jest/fake-timers",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "jest-message-util"
+      ],
+      "effects": [
+        "@jest/environment",
+        "jest-environment-node",
+        "jest-runtime"
+      ],
+      "range": "<=30.2.0",
+      "nodes": [
+        "node_modules/@jest/fake-timers"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@jest/globals": {
+      "name": "@jest/globals",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/environment",
+        "@jest/expect"
+      ],
+      "effects": [
+        "jest-runtime"
+      ],
+      "range": "<=30.2.0",
+      "nodes": [
+        "node_modules/@jest/globals"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@jest/reporters": {
+      "name": "@jest/reporters",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/console",
+        "@jest/test-result",
+        "@jest/transform",
+        "jest-message-util"
+      ],
+      "effects": [
+        "@jest/core"
+      ],
+      "range": "<=30.2.0",
+      "nodes": [
+        "node_modules/@jest/reporters"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@jest/test-result": {
+      "name": "@jest/test-result",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/console"
+      ],
+      "effects": [
+        "@jest/test-sequencer",
+        "jest-circus",
+        "jest-cli",
+        "jest-runtime",
+        "jest-watcher"
+      ],
+      "range": "25.4.0 - 30.2.0",
+      "nodes": [
+        "node_modules/@jest/test-result"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@jest/test-sequencer": {
+      "name": "@jest/test-sequencer",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/test-result",
+        "jest-haste-map"
+      ],
+      "effects": [
+        "jest-config"
+      ],
+      "range": "<=30.2.0",
+      "nodes": [
+        "node_modules/@jest/test-sequencer"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@jest/transform": {
+      "name": "@jest/transform",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "babel-plugin-istanbul",
+        "jest-haste-map",
+        "micromatch"
+      ],
+      "effects": [
+        "@jest/reporters",
+        "babel-jest",
+        "jest-runner",
+        "jest-runtime",
+        "jest-snapshot"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@jest/transform"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "@mapbox/node-pre-gyp": {
+      "name": "@mapbox/node-pre-gyp",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "tar"
+      ],
+      "effects": [
+        "bcrypt"
+      ],
+      "range": "<=1.0.11",
+      "nodes": [
+        "node_modules/@mapbox/node-pre-gyp"
+      ],
+      "fixAvailable": {
+        "name": "bcrypt",
+        "version": "6.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@nestjs/apollo": {
+      "name": "@nestjs/apollo",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@apollo/server",
+        "@apollo/server-plugin-landing-page-graphql-playground",
+        "@nestjs/graphql"
+      ],
+      "effects": [],
+      "range": "10.0.3 - 14.0.0-next.0",
+      "nodes": [
+        "node_modules/@nestjs/apollo"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/apollo",
+        "version": "13.4.5",
+        "isSemVerMajor": false
+      }
+    },
+    "@nestjs/graphql": {
+      "name": "@nestjs/graphql",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@graphql-tools/utils"
+      ],
+      "effects": [
+        "@nestjs/apollo"
+      ],
+      "range": "7.8.0 - 14.0.0",
+      "nodes": [
+        "node_modules/@nestjs/graphql"
+      ],
+      "fixAvailable": {
+        "name": "@nestjs/graphql",
+        "version": "14.0.3",
+        "isSemVerMajor": true
+      }
+    },
+    "@swc/cli": {
+      "name": "@swc/cli",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@xhmikosr/bin-wrapper",
+        "fast-glob"
+      ],
+      "effects": [],
+      "range": "0.1.42 - 0.8.0",
+      "nodes": [
+        "node_modules/@swc/cli"
+      ],
+      "fixAvailable": {
+        "name": "@swc/cli",
+        "version": "0.8.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@types/jest": {
+      "name": "@types/jest",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "expect"
+      ],
+      "effects": [],
+      "range": "28.1.7 - 29.5.14",
+      "nodes": [
+        "node_modules/@types/jest"
+      ],
+      "fixAvailable": {
+        "name": "@types/jest",
+        "version": "30.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@xhmikosr/archive-type": {
+      "name": "@xhmikosr/archive-type",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "file-type"
+      ],
+      "effects": [
+        "@xhmikosr/downloader"
+      ],
+      "range": "6.0.0 - 7.1.0",
+      "nodes": [
+        "node_modules/@xhmikosr/archive-type"
+      ],
+      "fixAvailable": {
+        "name": "@swc/cli",
+        "version": "0.8.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@xhmikosr/bin-wrapper": {
+      "name": "@xhmikosr/bin-wrapper",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@xhmikosr/downloader"
+      ],
+      "effects": [
+        "@swc/cli"
+      ],
+      "range": "10.0.0 - 13.2.0",
+      "nodes": [
+        "node_modules/@xhmikosr/bin-wrapper"
+      ],
+      "fixAvailable": {
+        "name": "@swc/cli",
+        "version": "0.8.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@xhmikosr/decompress": {
+      "name": "@xhmikosr/decompress",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@xhmikosr/decompress-tar",
+        "@xhmikosr/decompress-tarbz2",
+        "@xhmikosr/decompress-targz",
+        "@xhmikosr/decompress-unzip"
+      ],
+      "effects": [],
+      "range": "8.0.0 - 10.2.2",
+      "nodes": [
+        "node_modules/@xhmikosr/decompress"
+      ],
+      "fixAvailable": true
+    },
+    "@xhmikosr/decompress-tar": {
+      "name": "@xhmikosr/decompress-tar",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "file-type"
+      ],
+      "effects": [
+        "@xhmikosr/decompress",
+        "@xhmikosr/decompress-tarbz2",
+        "@xhmikosr/decompress-targz"
+      ],
+      "range": "6.0.0 - 8.1.0",
+      "nodes": [
+        "node_modules/@xhmikosr/decompress-tar"
+      ],
+      "fixAvailable": true
+    },
+    "@xhmikosr/decompress-tarbz2": {
+      "name": "@xhmikosr/decompress-tarbz2",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@xhmikosr/decompress-tar",
+        "file-type"
+      ],
+      "effects": [],
+      "range": "6.0.0 - 9.0.0",
+      "nodes": [
+        "node_modules/@xhmikosr/decompress-tarbz2"
+      ],
+      "fixAvailable": true
+    },
+    "@xhmikosr/decompress-targz": {
+      "name": "@xhmikosr/decompress-targz",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@xhmikosr/decompress-tar",
+        "file-type"
+      ],
+      "effects": [],
+      "range": "6.0.0 - 9.0.0",
+      "nodes": [
+        "node_modules/@xhmikosr/decompress-targz"
+      ],
+      "fixAvailable": true
+    },
+    "@xhmikosr/decompress-unzip": {
+      "name": "@xhmikosr/decompress-unzip",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "file-type"
+      ],
+      "effects": [],
+      "range": "6.0.0 - 7.1.0",
+      "nodes": [
+        "node_modules/@xhmikosr/decompress-unzip"
+      ],
+      "fixAvailable": true
+    },
+    "@xhmikosr/downloader": {
+      "name": "@xhmikosr/downloader",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@xhmikosr/archive-type",
+        "@xhmikosr/decompress",
+        "file-type"
+      ],
+      "effects": [
+        "@xhmikosr/bin-wrapper"
+      ],
+      "range": "10.0.0 - 10.0.1 || 12.0.0 - 15.2.0",
+      "nodes": [
+        "node_modules/@xhmikosr/downloader"
+      ],
+      "fixAvailable": {
+        "name": "@swc/cli",
+        "version": "0.8.1",
+        "isSemVerMajor": true
+      }
+    },
+    "apollo-server-core": {
+      "name": "apollo-server-core",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@graphql-tools/mock",
+        "@graphql-tools/schema",
+        {
+          "source": 1115451,
+          "name": "apollo-server-core",
+          "dependency": "apollo-server-core",
+          "title": "Apollo Server: Browser bug allows for bypass of XS-Search (read-only Cross-Site Request Forgery) prevention",
+          "url": "https://github.com/advisories/GHSA-9q82-xgwf-vj6h",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-200"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=3.13.0"
+        },
+        "uuid"
+      ],
+      "effects": [
+        "apollo-server-express"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/apollo-server-core"
+      ],
+      "fixAvailable": false
+    },
+    "apollo-server-express": {
+      "name": "apollo-server-express",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "apollo-server-core"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/apollo-server-express"
+      ],
+      "fixAvailable": false
+    },
+    "argparse": {
+      "name": "argparse",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "sprintf-js"
+      ],
+      "effects": [
+        "js-yaml"
+      ],
+      "range": "1.0.0 - 1.0.10",
+      "nodes": [
+        "node_modules/@istanbuljs/load-nyc-config/node_modules/argparse"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "babel-jest": {
+      "name": "babel-jest",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/transform",
+        "babel-plugin-istanbul"
+      ],
+      "effects": [
+        "jest-config"
+      ],
+      "range": ">=24.2.0-alpha.0",
+      "nodes": [
+        "node_modules/babel-jest"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "babel-plugin-istanbul": {
+      "name": "babel-plugin-istanbul",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@istanbuljs/load-nyc-config"
+      ],
+      "effects": [
+        "@jest/transform",
+        "babel-jest"
+      ],
+      "range": ">=6.0.0-beta.0",
+      "nodes": [
+        "node_modules/babel-plugin-istanbul"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "bcrypt": {
+      "name": "bcrypt",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@mapbox/node-pre-gyp"
+      ],
+      "effects": [],
+      "range": "5.0.1 - 5.1.1",
+      "nodes": [
+        "node_modules/bcrypt"
+      ],
+      "fixAvailable": {
+        "name": "bcrypt",
+        "version": "6.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "braces": {
+      "name": "braces",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1240992,
+          "name": "braces",
+          "dependency": "braces",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+          "severity": "high",
+          "cwe": [
+            "CWE-674"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<=3.0.3"
+        }
+      ],
+      "effects": [
+        "micromatch"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/braces"
+      ],
+      "fixAvailable": {
+        "name": "@swc/cli",
+        "version": "0.8.1",
+        "isSemVerMajor": true
+      }
+    },
+    "busboy": {
+      "name": "busboy",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "dicer"
+      ],
+      "effects": [
+        "graphql-upload"
+      ],
+      "range": "<=0.3.1",
+      "nodes": [
+        "node_modules/busboy"
+      ],
+      "fixAvailable": {
+        "name": "graphql-upload",
+        "version": "18.0.1",
+        "isSemVerMajor": true
+      }
+    },
+    "create-jest": {
+      "name": "create-jest",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "jest-config"
+      ],
+      "effects": [
+        "jest-cli"
+      ],
+      "range": "29.7.0 - 30.2.0",
+      "nodes": [
+        "node_modules/create-jest"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "dicer": {
+      "name": "dicer",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1093150,
+          "name": "dicer",
+          "dependency": "dicer",
+          "title": "Crash in HeaderParser in dicer",
+          "url": "https://github.com/advisories/GHSA-wm7h-9275-46v2",
+          "severity": "high",
+          "cwe": [
+            "CWE-248"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<=0.3.1"
+        }
+      ],
+      "effects": [
+        "busboy"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/dicer"
+      ],
+      "fixAvailable": {
+        "name": "graphql-upload",
+        "version": "18.0.1",
+        "isSemVerMajor": true
+      }
+    },
+    "expect": {
+      "name": "expect",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "jest-message-util"
+      ],
+      "effects": [
+        "@jest/expect",
+        "@types/jest",
+        "jest-snapshot"
+      ],
+      "range": "21.0.0-beta.1 - 30.2.0",
+      "nodes": [
+        "node_modules/expect"
+      ],
+      "fixAvailable": {
+        "name": "@types/jest",
+        "version": "30.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "fast-glob": {
+      "name": "fast-glob",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "micromatch"
+      ],
+      "effects": [
+        "@swc/cli"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/fast-glob"
+      ],
+      "fixAvailable": {
+        "name": "@swc/cli",
+        "version": "0.8.1",
+        "isSemVerMajor": true
+      }
+    },
+    "file-type": {
+      "name": "file-type",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1114301,
+          "name": "file-type",
+          "dependency": "file-type",
+          "title": "file-type affected by infinite loop in ASF parser on malformed input with zero-size sub-header",
+          "url": "https://github.com/advisories/GHSA-5v7r-6r5c-r473",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-835"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": ">=13.0.0 <21.3.1"
+        },
+        {
+          "source": 1114726,
+          "name": "file-type",
+          "dependency": "file-type",
+          "title": "file-type: ZIP Decompression Bomb DoS via [Content_Types].xml entry",
+          "url": "https://github.com/advisories/GHSA-j47w-4g3g-c36v",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-400",
+            "CWE-409"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": ">=20.0.0 <=21.3.1"
+        }
+      ],
+      "effects": [
+        "@xhmikosr/archive-type",
+        "@xhmikosr/decompress-tar",
+        "@xhmikosr/decompress-tarbz2",
+        "@xhmikosr/decompress-targz",
+        "@xhmikosr/decompress-unzip",
+        "@xhmikosr/downloader"
+      ],
+      "range": "13.0.0 - 21.3.1",
+      "nodes": [
+        "node_modules/@xhmikosr/archive-type/node_modules/file-type",
+        "node_modules/@xhmikosr/decompress-tar/node_modules/file-type",
+        "node_modules/@xhmikosr/decompress-tarbz2/node_modules/file-type",
+        "node_modules/@xhmikosr/decompress-targz/node_modules/file-type",
+        "node_modules/@xhmikosr/decompress-unzip/node_modules/file-type",
+        "node_modules/@xhmikosr/downloader/node_modules/file-type"
+      ],
+      "fixAvailable": {
+        "name": "@swc/cli",
+        "version": "0.8.1",
+        "isSemVerMajor": true
+      }
+    },
+    "graphql-upload": {
+      "name": "graphql-upload",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "busboy"
+      ],
+      "effects": [],
+      "range": "<=14.0.0",
+      "nodes": [
+        "node_modules/graphql-upload"
+      ],
+      "fixAvailable": {
+        "name": "graphql-upload",
+        "version": "18.0.1",
+        "isSemVerMajor": true
+      }
+    },
+    "jest": {
+      "name": "jest",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@jest/core",
+        "jest-cli"
+      ],
+      "effects": [],
+      "range": "23.5.0 - 30.2.0",
+      "nodes": [
+        "node_modules/jest"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "jest-circus": {
+      "name": "jest-circus",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/environment",
+        "@jest/expect",
+        "@jest/test-result",
+        "jest-message-util",
+        "jest-runtime",
+        "jest-snapshot"
+      ],
+      "effects": [
+        "jest-config"
+      ],
+      "range": "20.1.0-alpha.1 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-circus"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "jest-cli": {
+      "name": "jest-cli",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/core",
+        "@jest/test-result",
+        "create-jest",
+        "jest-config"
+      ],
+      "effects": [
+        "jest"
+      ],
+      "range": "23.5.0 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-cli"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "jest-config": {
+      "name": "jest-config",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/test-sequencer",
+        "babel-jest",
+        "jest-circus",
+        "jest-environment-node",
+        "jest-resolve",
+        "jest-runner",
+        "micromatch"
+      ],
+      "effects": [
+        "create-jest",
+        "jest-cli"
+      ],
+      "range": "18.1.0 - 19.0.4 || 23.5.0 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-config"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "jest-environment-node": {
+      "name": "jest-environment-node",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/environment",
+        "@jest/fake-timers"
+      ],
+      "effects": [
+        "jest-runner"
+      ],
+      "range": "24.2.0-alpha.0 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-environment-node"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "jest-haste-map": {
+      "name": "jest-haste-map",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "micromatch"
+      ],
+      "effects": [
+        "@jest/test-sequencer",
+        "jest-resolve",
+        "jest-runtime"
+      ],
+      "range": "18.1.0 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-haste-map"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "jest-message-util": {
+      "name": "jest-message-util",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "micromatch"
+      ],
+      "effects": [
+        "@jest/console",
+        "@jest/fake-timers",
+        "@jest/reporters",
+        "expect",
+        "jest-circus",
+        "jest-runner",
+        "jest-runtime",
+        "jest-snapshot"
+      ],
+      "range": "18.5.0-alpha.7da3df39 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-message-util"
+      ],
+      "fixAvailable": {
+        "name": "@types/jest",
+        "version": "30.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "jest-resolve": {
+      "name": "jest-resolve",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "jest-haste-map"
+      ],
+      "effects": [
+        "@jest/core",
+        "jest-config",
+        "jest-runner",
+        "jest-runtime"
+      ],
+      "range": "18.1.0 - 19.0.2 || 24.2.0-alpha.0 - 24.5.0 || 27.1.0 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-resolve"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "jest-resolve-dependencies": {
+      "name": "jest-resolve-dependencies",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "jest-snapshot"
+      ],
+      "effects": [],
+      "range": "23.3.0 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-resolve-dependencies"
+      ],
+      "fixAvailable": true
+    },
+    "jest-runner": {
+      "name": "jest-runner",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/console",
+        "@jest/environment",
+        "@jest/test-result",
+        "@jest/transform",
+        "jest-environment-node",
+        "jest-haste-map",
+        "jest-message-util",
+        "jest-resolve",
+        "jest-runtime",
+        "jest-watcher"
+      ],
+      "effects": [
+        "jest-config"
+      ],
+      "range": "21.0.0-alpha.1 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-runner"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "jest-runtime": {
+      "name": "jest-runtime",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/environment",
+        "@jest/fake-timers",
+        "@jest/globals",
+        "@jest/test-result",
+        "@jest/transform",
+        "jest-haste-map",
+        "jest-message-util",
+        "jest-resolve",
+        "jest-snapshot"
+      ],
+      "effects": [
+        "jest-circus",
+        "jest-runner"
+      ],
+      "range": "18.1.0 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-runtime"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "jest-snapshot": {
+      "name": "jest-snapshot",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/transform",
+        "expect",
+        "jest-message-util"
+      ],
+      "effects": [
+        "jest-circus",
+        "jest-resolve-dependencies",
+        "jest-runtime"
+      ],
+      "range": "23.3.0 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-snapshot"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "jest-watcher": {
+      "name": "jest-watcher",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@jest/test-result"
+      ],
+      "effects": [
+        "jest-runner"
+      ],
+      "range": "25.4.0 - 30.2.0",
+      "nodes": [
+        "node_modules/jest-watcher"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "js-yaml": {
+      "name": "js-yaml",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "argparse"
+      ],
+      "effects": [
+        "@istanbuljs/load-nyc-config"
+      ],
+      "range": "3.2.7 - 3.15.2",
+      "nodes": [
+        "node_modules/@istanbuljs/load-nyc-config/node_modules/js-yaml"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "micromatch": {
+      "name": "micromatch",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "braces"
+      ],
+      "effects": [
+        "@jest/core",
+        "@jest/transform",
+        "fast-glob",
+        "jest-config",
+        "jest-haste-map",
+        "jest-message-util"
+      ],
+      "range": ">=0.2.0",
+      "nodes": [
+        "node_modules/micromatch"
+      ],
+      "fixAvailable": {
+        "name": "@swc/cli",
+        "version": "0.8.1",
+        "isSemVerMajor": true
+      }
+    },
+    "sprintf-js": {
+      "name": "sprintf-js",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1241202,
+          "name": "sprintf-js",
+          "dependency": "sprintf-js",
+          "title": "sprintf-js vulnerable to denial of service through unbounded precision specifiers",
+          "url": "https://github.com/advisories/GHSA-hp3w-g68c-fv3c",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1284"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<=1.1.3"
+        }
+      ],
+      "effects": [
+        "argparse"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/sprintf-js"
+      ],
+      "fixAvailable": {
+        "name": "jest",
+        "version": "30.5.2",
+        "isSemVerMajor": true
+      }
+    },
+    "tar": {
+      "name": "tar",
+      "severity": "critical",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1112659,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar Vulnerable to Arbitrary File Creation/Overwrite via Hardlink Path Traversal",
+          "url": "https://github.com/advisories/GHSA-34x7-hfp2-rc4v",
+          "severity": "high",
+          "cwe": [
+            "CWE-22",
+            "CWE-59"
+          ],
+          "cvss": {
+            "score": 8.2,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:L/A:N"
+          },
+          "range": "<7.5.7"
+        },
+        {
+          "source": 1113300,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar is Vulnerable to Arbitrary File Overwrite and Symlink Poisoning via Insufficient Path Sanitization",
+          "url": "https://github.com/advisories/GHSA-8qq5-rm4j-mr97",
+          "severity": "high",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=7.5.2"
+        },
+        {
+          "source": 1113375,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "Arbitrary File Read/Write via Hardlink Target Escape Through Symlink Chain in node-tar Extraction",
+          "url": "https://github.com/advisories/GHSA-83g3-92jg-28cx",
+          "severity": "high",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 7.1,
+            "vectorString": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:N"
+          },
+          "range": "<7.5.8"
+        },
+        {
+          "source": 1114200,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "tar has Hardlink Path Traversal via Drive-Relative Linkpath",
+          "url": "https://github.com/advisories/GHSA-qffp-2rhf-9h96",
+          "severity": "high",
+          "cwe": [
+            "CWE-22",
+            "CWE-59"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=7.5.9"
+        },
+        {
+          "source": 1114302,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar Symlink Path Traversal via Drive-Relative Linkpath",
+          "url": "https://github.com/advisories/GHSA-9ppj-qmqm-q256",
+          "severity": "high",
+          "cwe": [
+            "CWE-22"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=7.5.10"
+        },
+        {
+          "source": 1114680,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "Race Condition in node-tar Path Reservations via Unicode Ligature Collisions on macOS APFS",
+          "url": "https://github.com/advisories/GHSA-r6q2-hw4h-h46w",
+          "severity": "high",
+          "cwe": [
+            "CWE-176",
+            "CWE-367"
+          ],
+          "cvss": {
+            "score": 8.8,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:H/A:L"
+          },
+          "range": "<=7.5.3"
+        },
+        {
+          "source": 1120782,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar applies PAX size override to intermediary GNU long-name/long-link headers, causing tar parser interpretation differential (file smuggling)",
+          "url": "https://github.com/advisories/GHSA-vmf3-w455-68vh",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-436"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<=7.5.15"
+        },
+        {
+          "source": 1123939,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar: Process crash via PAX numeric path type confusion",
+          "url": "https://github.com/advisories/GHSA-w8wr-v893-vjvp",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-704"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<=7.5.17"
+        },
+        {
+          "source": 1123940,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar: Decompression/parse DoS via unlimited input",
+          "url": "https://github.com/advisories/GHSA-23hp-3jrh-7fpw",
+          "severity": "critical",
+          "cwe": [
+            "CWE-770"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<=7.5.18"
+        },
+        {
+          "source": 1123941,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar: Negative tar entry size causes infinite loop in archive replace",
+          "url": "https://github.com/advisories/GHSA-8x88-c5mf-7j5w",
+          "severity": "high",
+          "cwe": [
+            "CWE-835"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<=7.5.17"
+        },
+        {
+          "source": 1123942,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar: Uncaught Exception DoS via NUL byte in PAX path/linkpath records",
+          "url": "https://github.com/advisories/GHSA-gvwx-54wh-qm9j",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-248"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<=7.5.16"
+        },
+        {
+          "source": 1145647,
+          "name": "tar",
+          "dependency": "tar",
+          "title": "node-tar: Uncontrolled recursion in mapHas/filesFilter allows uncatchable stack-overflow DoS via crafted long-path tar with member selection",
+          "url": "https://github.com/advisories/GHSA-r292-9mhp-454m",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-674"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<=7.5.20"
+        }
+      ],
+      "effects": [
+        "@mapbox/node-pre-gyp"
+      ],
+      "range": "<=7.5.20",
+      "nodes": [
+        "node_modules/tar"
+      ],
+      "fixAvailable": {
+        "name": "bcrypt",
+        "version": "6.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "uuid": {
+      "name": "uuid",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1119441,
+          "name": "uuid",
+          "dependency": "uuid",
+          "title": "uuid: Missing buffer bounds check in v3/v5/v6 when buf is provided",
+          "url": "https://github.com/advisories/GHSA-w5hq-g745-h8pq",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-787",
+            "CWE-1285"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+          },
+          "range": "<11.1.1"
+        }
+      ],
+      "effects": [
+        "@apollo/server",
+        "apollo-server-core"
+      ],
+      "range": "<11.1.1",
+      "nodes": [
+        "node_modules/uuid"
+      ],
+      "fixAvailable": false
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 17,
+      "high": 45,
+      "critical": 1,
+      "total": 63
+    },
+    "dependencies": {
+      "prod": 490,
+      "dev": 638,
+      "optional": 40,
+      "peer": 0,
+      "peerOptional": 0,
+      "total": 1134
+    }
+  }
+}
