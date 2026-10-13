@@ -34,6 +34,9 @@ async function bootstrap() {
   await seedAdmin(adminService);
   app.use('/graphql', graphqlUploadExpress());
   app.useGlobalFilters(new GraphQLExceptionFilter());
-  await app.listen(process.env.APP_PORT ?? 3000, '127.0.0.1'); // or 'localhost'
+  await app.listen(
+    process.env.APP_PORT ?? 3000,
+    process.env.APP_HOST ?? '127.0.0.1',
+  );
 }
 bootstrap();
