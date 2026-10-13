@@ -7,7 +7,11 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { GqlExceptionFilter } from '@nestjs/graphql';
-import { ApolloError } from 'apollo-server-express';
+import { GraphQLError } from 'graphql';
+
+// Remplace ApolloError (apollo-server-express, abandonné et vulnérable) : même message, même extensions.code
+const gqlError = (message: string, code: string) =>
+  new GraphQLError(message, { extensions: { code } });
 
 @Catch(HttpException)
 export class GraphQLExceptionFilter implements GqlExceptionFilter {
@@ -19,13 +23,13 @@ export class GraphQLExceptionFilter implements GqlExceptionFilter {
 
     switch (status) {
       case 404:
-        return new ApolloError(message, 'NOT_FOUND');
+        return gqlError(message, 'NOT_FOUND');
       case 403:
-        return new ApolloError(message, 'FORBIDDEN');
+        return gqlError(message, 'FORBIDDEN');
       case 401:
-        return new ApolloError(message, 'UNAUTHENTICATED');
+        return gqlError(message, 'UNAUTHENTICATED');
       default:
-        return new ApolloError(message, 'INTERNAL_SERVER_ERROR');
+        return gqlError(message, 'INTERNAL_SERVER_ERROR');
     }
   }
 }

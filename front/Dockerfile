@@ -2,8 +2,7 @@
 FROM node:22-slim AS build
 WORKDIR /app
 COPY package*.json ./
-# --legacy-peer-deps : conflit express 4 (react-scripts) / express 5 (@nestjs/serve-static), voir SCA 4.4
-RUN npm ci --legacy-peer-deps
+RUN npm ci
 COPY . .
 ARG VITE_API_URL=http://localhost:3000
 ENV VITE_API_URL=$VITE_API_URL
