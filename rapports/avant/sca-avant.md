@@ -14,6 +14,34 @@
 Remarque : le guide annonçait 0 critique en production côté back ; notre audit en trouve 1, car `tar`
 arrive via `bcrypt`, qui est une dépendance de production.
 
+## Snyk – synthèse (`snyk test --all-projects`, fichier `snyk.json`)
+
+| Projet | Dépendances | Problèmes uniques | Critique | Haute | Moyenne | Faible |
+|---|---|---|---|---|---|---|
+| back (`package-lock.json`) | 467 | 32 | 2 | 19 | 11 | 0 |
+| front (`package-lock.json`) | 1367 | 40 | 2 | 13 | 23 | 2 |
+
+Origine des problèmes (dépendance directe qui les introduit) :
+
+| Projet | Dépendance directe | Problèmes | Pire gravité | Détail critique |
+|---|---|---|---|---|
+| back | `multer` 1.4.5-lts.2 | 12 | **critique** | CVE-2025-48997 (SNYK-JS-MULTER-10299078), corrigé en 2.0.1 ; autres hautes corrigées jusqu'en 2.3.0 |
+| back | `apollo-server-express` 3.13.0 | 4 | **critique** | `@apollo/protobufjs` 1.2.6 – CVE-2026-41242 (injection de code) ; paquet abandonné, pas de correctif |
+| back | `bcrypt` 5.1.1 | 13 | haute | via `tar` / `@mapbox/node-pre-gyp` |
+| back | `graphql-upload`, `@faker-js/faker`, `@apollo/server` | 1 chacun | haute / moyenne | – |
+| front | `react-scripts` | 35 | **critique** | `react-dev-utils` 12.0.1 – CVE-2026-14802 |
+| front | `swiper` | 1 | **critique** | CVE-2026-27212 |
+| front | `next` | 4 | haute | – |
+
+**Apport de Snyk par rapport à npm audit** : npm audit ne signalait ni `multer` ni la critique
+d'`apollo-server-express` (classé « moyenne » par npm). Deux outils SCA ne donnent pas les mêmes résultats
+(bases de vulnérabilités différentes) : les croiser évite de passer à côté d'une faille critique.
+
+Usage réel dans le code :
+- `multer` : uniquement `import { diskStorage } from 'multer'` (report.controller.ts). Le traitement des
+  fichiers est fait par le multer embarqué par `@nestjs/platform-express` (déjà en 2.4.0).
+- `apollo-server-express` : uniquement `ApolloError` dans `common/filters/graphql-exception.filter.ts`.
+
 ## Back – vulnérabilités principales (dépendances directes + critique)
 
 | Gravité | Paquet (version vulnérable) | Identifiants | Introduit par | Correction proposée par npm |
