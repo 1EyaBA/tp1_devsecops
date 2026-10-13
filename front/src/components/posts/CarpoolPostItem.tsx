@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { MapPin, Calendar, Clock, Users, RotateCcw, User } from 'lucide-react';
 import { CarpoolPost } from '../../types/posts.ts';
 import { formatDate, formatTime } from '../../utils/dateTime';
-import '../../styles/posts.css';
+import '../../Styles/posts.css';
 import { useLazyQuery, useMutation, useQuery } from '@apollo/client';
 import { CREATE_JOIN_REQUEST, DELETE_JOIN_REQUEST } from '../../graphQl/queries/rides.ts';
 import { CLOSE_POST, DELETE_POST, GET_JOIN_REQUESTS, GET_POSTS, GET_RIDE,IS_USER_IN_RIDE } from '../../graphQl/queries/posts.ts';

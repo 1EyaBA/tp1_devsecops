@@ -2,7 +2,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { CREATE_POST, GET_POSTS } from '../../graphQl/queries/posts';
 import React, { useEffect, useMemo, useState } from 'react';
 import { CreatePostFormData } from '../../types/posts.ts';
-import '../../styles/posts.css';
+import '../../Styles/posts.css';
 import { GET_USER } from '../../graphQl/queries/rides.ts';
 interface CreatePostModalProps {
   isOpen: boolean;

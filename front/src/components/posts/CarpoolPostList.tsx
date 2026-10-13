@@ -5,7 +5,7 @@ import CarpoolPostItem from './CarpoolPostItem.tsx';
 import CreatePostModal from './CreatePostModal.tsx';
 import ViewPostModal from './ViewPostModal.tsx';
 import { CarpoolPost} from '../../types/posts.ts';
-import '../../styles/posts.css';
+import '../../Styles/posts.css';
 import { useQuery } from '@apollo/client';
 import { GET_POSTS } from '../../graphQl/queries/posts.ts';
 import { GET_USER } from '../../graphQl/queries/rides.ts';
