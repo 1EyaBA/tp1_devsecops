@@ -23,7 +23,7 @@ const ALLOWED_MIME = [
   'image/png', 'image/jpeg', 'image/webp', 'application/pdf', 'video/mp4',
 ];
 const ALLOWED_EXT = ['.png', '.jpg', '.jpeg', '.webp', '.pdf', '.mp4'];
-const MAX_PROOF_SIZE = 10 * 1024 * 1024; // 10 Mo
+const MAX_PROOF_SIZE = 5 * 1024 * 1024; // 5 Mo (Sonar S5693 : seuil max 8 Mo)
 
 @Controller('reports')
 @UseGuards(AuthGuard('jwt'))
